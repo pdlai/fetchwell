@@ -4,8 +4,18 @@ Rails.application.routes.draw do
   root to: "static_pages#root"
 
   namespace :api, defaults: {format: :json} do
+    # auth routes
     resources :users, only: [:create, :show]
     resource :session, only: [:create, :destroy]
+
+    # resources
+    resources :cart_items, only: [:index, :destroy, :create, :update]
+    resources :products, only: [:index, :show]
+    resources :reviews, only: [:create]
+    resources :likes, only: [:create, :destroy]
+
   end
 
 end
+
+# index create new edit show update destroy

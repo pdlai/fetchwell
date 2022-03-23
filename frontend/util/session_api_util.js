@@ -4,7 +4,7 @@ export const createUser = (user) => {
         url: "/api/users",
         data: {user: user}
     })
-  }
+}
 
 export const createSession = (user) => {
     return $.ajax({

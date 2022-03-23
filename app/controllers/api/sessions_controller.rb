@@ -1,7 +1,6 @@
 class Api::SessionsController < ApplicationController
   
   def create
-    # Find user by credentials
     @user = User.find_by_credentials(params[:user][:username], params[:user][:password])
     # Flash errors, if any.
     # Render :new if invalid credentials (give the user another chance to login)
@@ -18,7 +17,6 @@ class Api::SessionsController < ApplicationController
 
   end
 
-  # Might be Broken
   def destroy 
     @user = current_user
     if @user

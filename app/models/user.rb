@@ -4,6 +4,22 @@ class User < ApplicationRecord
     validates :password, length: {minimum: 6, allow_nil: true}
     attr_reader :password 
     after_initialize :ensure_session_token 
+
+    has_many :reviews,
+      foreign_key: :user_id,
+      class_name: :Review
+
+    has_many :cart_items,
+      foreign_key: :user_id,
+      class_name: :CartItem
+
+    has_many :likes,
+      foreign_key: :user_id,
+      class_name: :Like
+
+    has_many :products, 
+      through: :cart_items,
+      source: :product
   
     #SPIRE 
     def self.find_by_credentials(username, password)
