@@ -3,8 +3,7 @@ class Api::ProductsController < ApplicationController
     def index
         # show all products for now, later will have params for filter
         puts params[:filters]
-        puts "test"
-        @products = Product.all
+        @products = Product.where(category: params[:filters][:category])
         render :index
     end
 

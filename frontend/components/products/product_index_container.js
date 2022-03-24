@@ -3,6 +3,7 @@ import {
         searchProducts, 
         searchProduct 
     } from '../../actions/product_actions';
+import { updateFilters } from '../../actions/filter_actions';
 import ProductIndex from './product_index';
 
 const mapStateToProps = (state) => {
@@ -15,6 +16,7 @@ const mapDispatchToProps = (dispatch) => {
     return {
         searchProducts: (filters) => dispatch(searchProducts(filters)),
         searchProduct: (id) => dispatch(searchProduct(id)),
+        updateFilters: (filters) => dispatch(updateFilters(filters))
     }
 }
 

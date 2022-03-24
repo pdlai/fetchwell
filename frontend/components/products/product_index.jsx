@@ -6,14 +6,22 @@ class ProductIndex extends React.Component {
         super(props);
     }
 
-    // componentDidMount(){
-    //     this.props.searchProducts();
-    // }
+    componentDidMount(){
+        this.path = this.props.location.pathname;
+        let queries = this.path.split("/");
+        if( queries[1] === 'womens' || queries[1] === 'mens'){
+            this.props.updateFilters({
+                gender: queries[1],
+                category: queries[2],
+                subcategory: queries[3]
+            })
+        }
+    }
 
     render(){
         return(
             <div>
-                <ul>
+                <ul className="product-index-list">
                     {
                         this.props.products.map(product => (
                             <ProductIndexItem

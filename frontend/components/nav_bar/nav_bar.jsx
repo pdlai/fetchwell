@@ -12,18 +12,6 @@ class NavBar extends React.Component {
         this.props.updateFilters(filters);
     }
 
-    componentDidMount(){
-        this.path = this.props.location.pathname;
-        let queries = this.path.split("/");
-        if( queries[1] === 'womens' || queries[1] === 'mens'){
-            this.handleClick({
-                gender: queries[1],
-                category: queries[2],
-                subcategory: queries[3]
-            })
-        }
-    }
-
     render(){
         return(
             <div className="nav-bar-container">
@@ -38,8 +26,8 @@ class NavBar extends React.Component {
                     <ul className="nav-links">
                         <li>
                             <Link to="/womens/new" onClick={ () => this.handleClick({ gender: "womens", category: "new" })}>New</Link>
-                            <Link to="/womens/clothing/jeans" onClick={ () => this.handleClick({ gender: "womens", category: "clothes", subcategory: "jeans" })}>Denim</Link>
-                            <Link to="/womens/clothing" onClick={ () => this.handleClick({ gender: "womens", category: "clothes" })}>Clothing</Link>
+                            <Link to="/womens/clothing/jeans" onClick={ () => this.handleClick({ gender: "womens", category: "clothing", subcategory: "jeans" })}>Denim</Link>
+                            <Link to="/womens/clothing" onClick={ () => this.handleClick({ gender: "womens", category: "clothing" })}>Clothing</Link>
                             <Link to="/womens/shoes" onClick={ () => this.handleClick({ gender: "womens", category: "shoes" })}>Shoes</Link>
                             <Link to="/womens/accessories" onClick={ () => this.handleClick({ gender: "womens", category: "accessories" })}>Accessories</Link>
                             <Link to="/womens/brands" onClick={ () => this.handleClick({ gender: "womens", category: "brands" })}>Labels We Love</Link>

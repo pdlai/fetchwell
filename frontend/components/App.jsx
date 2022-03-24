@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 import ProductIndexContainer from "./products/product_index_container";
+import ProductShowContainer from "./products/product_show_container";
 import NavBarContainer from "./nav_bar/nav_bar_container"
 import Modal from "./modal/modal";
 
@@ -23,7 +24,7 @@ class App extends React.Component {
 
                 <Switch>
                     <Route path="/womens/" component={ProductIndexContainer} />
-                    {/* redirects to splash page with invalid path, may want to change later */}
+                    <Route path="/products/:id" component={ProductShowContainer} />
                     <Redirect to="/" />
                 </Switch>
 
