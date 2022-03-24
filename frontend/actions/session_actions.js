@@ -26,17 +26,26 @@ const receiveErrors = (errors) => {
 
 export const login = (user) => (dispatch) => {
     return createSession(user)
-    .then( (modUser) => { return dispatch(receiveCurrentUser(modUser)) } )
+    .then( 
+        (modUser) => { return dispatch(receiveCurrentUser(modUser)) },
+        (err) => ( dispatch(receiveErrors(err.responseJSON)) )
+    )
 };
 
 export const logout = () =>  (dispatch) => {
     return deleteSession()
-    .then( () => { return dispatch(logoutCurrentUser()) } )
+    .then( 
+        () => { return dispatch(logoutCurrentUser()) },
+        (err) => ( dispatch(receiveErrors(err.responseJSON)) )
+    )
 };
 
 export const signup = (user) => (dispatch) => {
     return createUser(user)
-    .then( (modUser) => { return dispatch(receiveCurrentUser(modUser)) } )
+    .then( 
+        (modUser) => { return dispatch(receiveCurrentUser(modUser)) },
+        (err) => ( dispatch(receiveErrors(err.responseJSON)) )
+    )
 };
     
 // export const signup = (user) => (dispatch) => createUser(user)

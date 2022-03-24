@@ -1,9 +1,13 @@
 import React from "react";
-import GreetingContainer from "./greeting/greeting_container";
-import LoginFormContainer from "./session_form/login_form_container";
-import SignupFormContainer from "./session_form/signup_form_container";
+import { Link } from "react-router-dom";
+
+import ProductIndexContainer from "./products/product_index_container";
+import NavBarContainer from "./nav_bar/nav_bar_container"
+import Modal from "./modal/modal";
+
 import { AuthRoute, ProtectedRoute } from "../util/route_util";
-import { Redirect, Switch } from "react-router";
+import { Redirect, Switch, Route } from "react-router";
+
 
 class App extends React.Component {
     constructor(props){
@@ -13,18 +17,12 @@ class App extends React.Component {
     render(){
         return(
             <div>
-                <header>
-                    <h1>Fetchwell</h1>
-                    <GreetingContainer />
-                </header>
-
-                {/* putting everything here to test */}
-
+                <Modal />
+                
+                <NavBarContainer />
 
                 <Switch>
-                    <AuthRoute path="/login" component={LoginFormContainer} />
-                    <AuthRoute path="/signup" component={SignupFormContainer} />
-
+                    <Route path="/womens/" component={ProductIndexContainer} />
                     {/* redirects to splash page with invalid path, may want to change later */}
                     <Redirect to="/" />
                 </Switch>

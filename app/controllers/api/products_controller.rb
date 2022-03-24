@@ -2,6 +2,8 @@ class Api::ProductsController < ApplicationController
 
     def index
         # show all products for now, later will have params for filter
+        puts params[:filters]
+        puts "test"
         @products = Product.all
         render :index
     end

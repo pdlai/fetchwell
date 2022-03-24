@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 
 class SessionForm extends React.Component {
     constructor(props){
@@ -14,7 +14,7 @@ class SessionForm extends React.Component {
     handleSubmit(e){
         e.preventDefault();
         const user = Object.assign({}, this.state);
-        this.props.processForm(user);
+        this.props.processForm(user).then(this.props.closeModal);
     }
 
     update(field){
@@ -36,16 +36,11 @@ class SessionForm extends React.Component {
     }
 
     render(){
-        let sessionLink;
-        if (this.props.formType === 'Sign Up'){
-            sessionLink = <Link to="/login">Sign In</Link>
-        } else {
-            sessionLink = <Link to="/signup">Sign Up</Link>
-        }
         return(
             <div className="login-signup-form-container">
                 <br/>
-                Please {this.props.formType}
+                <div onClick={this.props.closeModal} className="close-x">X</div>
+                Please {this.props.formType} or {this.props.otherForm}
                 {this.renderErrors()}
                 <form onSubmit={this.handleSubmit}>
                     <label>Username:
@@ -66,10 +61,9 @@ class SessionForm extends React.Component {
                     <input type="submit" value={this.props.formType}/>
                 </form>
                 <br/>
-                {sessionLink}
             </div>
         )
     }
 }
 
-export default SessionForm;
+export default withRouter(SessionForm);
