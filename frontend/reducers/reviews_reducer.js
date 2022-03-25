@@ -1,17 +1,16 @@
 import {
-    RECEIVE_PRODUCT
-} from "../actions/product_actions";
+    RECEIVE_REVIEW,
+    RECEIVE_REVIEWS,
+    RECEIVE_REVIEW_ERRORS
+} from "../actions/review_actions";
 
 const reviewsReducer = (state = {}, action) => {
     Object.freeze(state);
     switch(action.type) {
-        case RECEIVE_PRODUCT:
-            const nextState = {};
-            if(!action.product.reviews) return nextState;
-            action.product.reviews.forEach(review => {
-                nextState[review.id] = review
-            })
-            return nextState;
+        case RECEIVE_REVIEWS:
+            return action.reviews;
+        case RECEIVE_REVIEW:
+            Object.assign({}, state, { [action.review.id]: action.review })
         default:
             return state;
     }

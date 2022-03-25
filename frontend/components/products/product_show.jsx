@@ -1,5 +1,6 @@
 import React from 'react';
 import ReviewItem from '../reviews/review_item';
+import { Link } from "react-router-dom";
 
 class ProductShow extends React.Component {
     constructor(props){
@@ -7,7 +8,22 @@ class ProductShow extends React.Component {
     }
 
     componentDidMount(){
-        this.props.searchProduct(this.props.match.params.id)
+        this.props.searchProduct(this.props.match.params.id);
+        this.props.fetchReviews(this.props.match.params.id);
+    }
+
+    handleCreateReview(){
+        if (this.props.currentUser){
+            return(
+                <Link to={`${this.props.location.pathname}/reviews/new`}>
+                    <button>Create Review</button>
+                </Link>
+            )
+        } else {
+            return(
+                <button onClick={() => this.props.openModal('login')}>Create Review</button>
+            )
+        }
     }
 
     render(){
@@ -23,6 +39,7 @@ class ProductShow extends React.Component {
                     <div>{ product.description }</div>
                     <div>{ product.image_url }</div>
                 </div>
+                {this.handleCreateReview()}
                 <ul className="product-show-reviews">
                     {
                         reviews.map(review => (

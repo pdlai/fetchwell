@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     # resources
     resources :cart_items, only: [:index, :destroy, :create, :update]
     resources :products, only: [:index, :show]
-    resources :reviews, only: [:create]
+    resources :reviews, only: [:create, :index]
     resources :likes, only: [:create, :destroy]
 
   end
