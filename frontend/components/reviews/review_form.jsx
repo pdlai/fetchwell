@@ -45,8 +45,10 @@ class ReviewForm extends React.Component {
     }
 
     renderErrors(){
+        if(!this.state.errors) return;
         return(
             <ul className='review-form-error-list'>
+                <div>We're sorry, but we have encountered the following issue(s):</div>
                 {this.props.errors.map((error, i) => (
                     <li key={`error-${i}`}>
                         {error}
