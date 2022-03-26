@@ -9,7 +9,7 @@ class ReviewItem extends React.Component {
         let review = this.props.review;
         return(
             <div>
-                <div>{ review.author }</div>
+                <div>{ review.nickname }</div>
                 <div>{ review.location }</div>
                 <div>{ review.overall_fit }</div>
                 <div>{ review.rating }</div>

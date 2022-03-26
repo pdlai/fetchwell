@@ -12,7 +12,7 @@ class ProductShow extends React.Component {
         this.props.fetchReviews(this.props.match.params.id);
     }
 
-    handleCreateReview(){
+    renderCreateReview(){
         if (this.props.currentUser){
             return(
                 <Link to={`${this.props.location.pathname}/reviews/new`}>
@@ -39,7 +39,7 @@ class ProductShow extends React.Component {
                     <div>{ product.description }</div>
                     <div>{ product.image_url }</div>
                 </div>
-                {this.handleCreateReview()}
+                {this.renderCreateReview()}
                 <ul className="product-show-reviews">
                     {
                         reviews.map(review => (

@@ -1,6 +1,6 @@
 class Review < ApplicationRecord
 
-    validates :location, :overall_fit, :rating, :summary, :description, :author_id, :product_id, presence: true
+    validates :location, :overall_fit, :rating, :summary, :description, :author_id, :product_id, :nickname, presence: true
 
     belongs_to :user,
         foreign_key: :author_id,

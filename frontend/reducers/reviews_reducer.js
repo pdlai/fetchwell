@@ -1,7 +1,6 @@
 import {
     RECEIVE_REVIEW,
     RECEIVE_REVIEWS,
-    RECEIVE_REVIEW_ERRORS
 } from "../actions/review_actions";
 
 const reviewsReducer = (state = {}, action) => {
