@@ -6,10 +6,25 @@ import { withRouter } from "react-router";
 class NavBar extends React.Component {
     constructor(props){
         super(props);
+        this.renderCartItemsButton = this.renderCartItemsButton.bind(this);
     }
 
     handleClick(filters){
         this.props.updateFilters(filters);
+    }
+
+    renderCartItemsButton(){
+        if (this.props.currentUser){
+            return(
+                <Link to={`/cart`}>
+                    <button>Cart</button>
+                </Link>
+            )
+        } else {
+            return(
+                <button onClick={() => this.props.openModal('login')}>Cart</button>
+            )
+        }
     }
 
     render(){
@@ -22,20 +37,19 @@ class NavBar extends React.Component {
                     <h1>Fetchwell</h1>
                 </Link>
                 <GreetingContainer />
+                { this.renderCartItemsButton() }
                 <div className="nav-bar">
                     <ul className="nav-links">
-                        <li>
-                            <Link to="/womens/new" onClick={ () => this.handleClick({ gender: "womens", category: "new" })}>New</Link>
-                            <Link to="/womens/clothing/jeans" onClick={ () => this.handleClick({ gender: "womens", category: "clothing", subcategory: "jeans" })}>Denim</Link>
-                            <Link to="/womens/clothing" onClick={ () => this.handleClick({ gender: "womens", category: "clothing" })}>Clothing</Link>
-                            <Link to="/womens/shoes" onClick={ () => this.handleClick({ gender: "womens", category: "shoes" })}>Shoes</Link>
-                            <Link to="/womens/accessories" onClick={ () => this.handleClick({ gender: "womens", category: "accessories" })}>Accessories</Link>
-                            <Link to="/womens/brands" onClick={ () => this.handleClick({ gender: "womens", category: "brands" })}>Labels We Love</Link>
-                            <Link to="/womens/sale" onClick={ () => this.handleClick({ gender: "womens", category: "sale" })}>Sale</Link>
+                        <li> <Link to="/womens/new" onClick={ () => this.handleClick({ gender: "womens", category: "new" })}>New</Link> </li>
+                        <li> <Link to="/womens/clothing/jeans" onClick={ () => this.handleClick({ gender: "womens", category: "clothing", subcategory: "jeans" })}>Denim</Link> </li>
+                        <li> <Link to="/womens/clothing" onClick={ () => this.handleClick({ gender: "womens", category: "clothing" })}>Clothing</Link> </li>
+                        <li> <Link to="/womens/shoes" onClick={ () => this.handleClick({ gender: "womens", category: "shoes" })}>Shoes</Link> </li>
+                        <li> <Link to="/womens/accessories" onClick={ () => this.handleClick({ gender: "womens", category: "accessories" })}>Accessories</Link> </li>
+                        <li> <Link to="/womens/brands" onClick={ () => this.handleClick({ gender: "womens", category: "brands" })}>Labels We Love</Link> </li>
+                        <li> <Link to="/womens/sale" onClick={ () => this.handleClick({ gender: "womens", category: "sale" })}>Sale</Link> </li>
 
-                            <Link to="/">Community</Link>
-                            <Link to="/">Preloved</Link>
-                        </li>
+                        <li> <Link to="/">Community</Link> </li>
+                        <li> <Link to="/">Preloved</Link> </li>
                     </ul>
                 </div>
             </div>

@@ -8,7 +8,7 @@ class ReviewItem extends React.Component {
     render(){
         let review = this.props.review;
         return(
-            <div>
+            <li>
                 <div>{ review.nickname }</div>
                 <div>{ review.location }</div>
                 <div>{ review.overall_fit }</div>
@@ -16,7 +16,7 @@ class ReviewItem extends React.Component {
                 <div>{ review.summary }</div>
                 <div>{ review.created_at }</div>
                 <div>{ review.description }</div>
-            </div>
+            </li>
         )
     }
 }
