@@ -9,6 +9,10 @@ class NavBar extends React.Component {
         this.renderCartItemsButton = this.renderCartItemsButton.bind(this);
     }
 
+    componentDidMount(){
+        if(this.props.currentUser) this.props.fetchCartItems(this.props.currentUser.id);
+    }
+
     handleClick(filters){
         this.props.updateFilters(filters);
     }
@@ -16,15 +20,24 @@ class NavBar extends React.Component {
     renderCartItemsButton(){
         if (this.props.currentUser){
             return(
-                <Link to={`/cart`}>
-                    <button>Cart</button>
-                </Link>
+                <button onClick={() => this.props.openModal('cart')}>Cart</button>
             )
         } else {
             return(
                 <button onClick={() => this.props.openModal('login')}>Cart</button>
             )
         }
+    }
+
+    renderCartItemsCount(){
+        let count = 0;
+        this.props.cartItems.forEach(cartItem => {
+            count += parseInt(cartItem.quantity);
+        })
+        if(!this.props.currentUser) count = 0;
+        return(
+            <div>items count: {count}</div>
+        )
     }
 
     render(){
@@ -37,6 +50,7 @@ class NavBar extends React.Component {
                     <h1>Fetchwell</h1>
                 </Link>
                 <GreetingContainer />
+                { this.renderCartItemsCount() }
                 { this.renderCartItemsButton() }
                 <div className="nav-bar">
                     <ul className="nav-links">

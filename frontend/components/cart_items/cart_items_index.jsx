@@ -1,5 +1,6 @@
 import React from 'react';
 import CartItemsIndexItem from './cart_items_index_item';
+import { withRouter } from 'react-router-dom';
 
 class CartItemsIndex extends React.Component {
     constructor(props){
@@ -11,9 +12,10 @@ class CartItemsIndex extends React.Component {
     }
 
     render(){
-        if(!this.props.cartItems) return null;
+        if(!this.props.cartItems.length) return (<div>Your cart is empty.</div>)
         return(
             <div>
+                <div onClick={this.props.closeModal} className="close-x">X</div>
                 <ul className="cart-items-index-list">
                     {
                         this.props.cartItems.map(cartItem => (
@@ -28,4 +30,4 @@ class CartItemsIndex extends React.Component {
     }
 }
 
-export default CartItemsIndex;
+export default withRouter(CartItemsIndex);

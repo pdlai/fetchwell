@@ -5,7 +5,7 @@ import ProductIndexContainer from "./products/product_index_container";
 import ProductShowContainer from "./products/product_show_container";
 import NavBarContainer from "./nav_bar/nav_bar_container"
 import ReviewFormContainer from "./reviews/review_form_container"
-import CartItemsFormContainer from "./cart_items/cart_items_index_container"
+// import CartItemsFormContainer from "./cart_items/cart_items_index_container"
 import Modal from "./modal/modal";
 
 import { AuthRoute, ProtectedRoute } from "../util/route_util";
@@ -25,7 +25,6 @@ class App extends React.Component {
                 <NavBarContainer />
 
                 <Switch>
-                    <ProtectedRoute path="/cart" component={CartItemsFormContainer} />
                     <Route path="/womens/" component={ProductIndexContainer} />
                     <ProtectedRoute path='/products/:id/reviews/new' component={ReviewFormContainer} />
                     <Route path="/products/:id" component={ProductShowContainer} />

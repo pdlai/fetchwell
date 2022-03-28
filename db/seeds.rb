@@ -53,6 +53,8 @@ pants8 = Product.create(name: "berks8", gender: "womens", category: "shoes", sub
 pants9 = Product.create(name: "berks9", gender: "womens", category: "shoes", subcategory: "sandals", price: 9.99, description: "nice sands", image_url: "/assets/images/test_pants.jpg")
 
 CartItem.create(quantity: 1, size: "M", user_id: user1.id, product_id: pants1.id)
+CartItem.create(quantity: 2, size: "S", user_id: user1.id, product_id: pants1.id)
+CartItem.create(quantity: 3, size: "S", user_id: user1.id, product_id: pants2.id)
 CartItem.create(quantity: 2, size: "M", user_id: user2.id, product_id: pants2.id)
 CartItem.create(quantity: 3, size: "M", user_id: user3.id, product_id: pants3.id)
 CartItem.create(quantity: 4, size: "M", user_id: user4.id, product_id: pants4.id)

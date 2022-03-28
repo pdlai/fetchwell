@@ -3,11 +3,13 @@ import React from 'react';
 import { openModal, closeModal } from '../../actions/modal_actions';
 import { login } from "../../actions/session_actions";
 import SessionForm from './session_form';
+import { fetchCartItems } from '../../actions/cart_actions';
 
 const mapStateToProps = ( state ) => {
     return {
         errors: state.errors.session,
         formType: 'Login',
+        currentUser: state.entities.users[state.session.id],
     }
 };
 
@@ -19,7 +21,8 @@ const mapDispatchToProps = ( dispatch ) => {
                 Signup
             </button>
         ),
-        closeModal: () => dispatch(closeModal())
+        closeModal: () => dispatch(closeModal()),
+        fetchCartItems: (userId) => dispatch(fetchCartItems(userId)),
     }
 };
 

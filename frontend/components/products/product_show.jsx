@@ -1,10 +1,15 @@
 import React from 'react';
 import ReviewItem from '../reviews/review_item';
 import { Link } from "react-router-dom";
+import { addCartItem, editCartItem } from '../../actions/cart_actions';
 
 class ProductShow extends React.Component {
     constructor(props){
         super(props);
+        this.handleAddToCart = this.handleAddToCart.bind(this);
+        this.state = {
+            size: "",
+        }
     }
 
     componentDidMount(){
@@ -26,6 +31,50 @@ class ProductShow extends React.Component {
         }
     }
 
+    handleAddToCart(){
+        if (!this.props.currentUser){
+            this.props.openModal('login');
+        } else {
+            const product = this.props.product;
+            const cartItems = this.props.cartItems;
+            for (let cartItem of cartItems){
+                if (cartItem.product_id === product.id && cartItem.size === this.state.size){
+                    const newQuantity = cartItem.quantity + 1;
+                    this.props.editCartItem({ id: cartItem.id, product_id: product.id, user_id: this.props.currentUser.id, size: this.state.size, quantity: newQuantity })
+                        .then(
+                            () => this.props.openModal('cart'),
+                            () => this.setState({ errors: this.props.errors })
+                        );
+                    return;
+                }
+            }
+            this.props.addCartItem({ product_id: product.id, user_id: this.props.currentUser.id, size: this.state.size, quantity: 1 })
+                .then(
+                    () => this.props.openModal('cart'),
+                    () => this.setState({ errors: this.props.errors })
+                );
+        }
+    }
+
+    update(field){
+        return e => this.setState({
+            [field]: e.currentTarget.value
+        })
+    }
+
+    renderErrors(){
+        if(!this.state.errors) return;
+        return(
+            <ul className='review-form-error-list'>
+                {this.props.errors.map((error, i) => (
+                    <li key={`error-${i}`}>
+                        {error}
+                    </li>
+                ))}
+            </ul>
+        )
+    }
+
     render(){
         if(!this.props.product) return null;
 
@@ -39,6 +88,31 @@ class ProductShow extends React.Component {
                     <div>{ product.description }</div>
                     <div>{ product.image_url }</div>
                 </div>
+
+                {this.renderErrors()}
+
+                <div>
+                    <label>XX Small
+                        <input onClick={this.update("size")} type="radio" name="size" value="XXS" />
+                    </label>
+                    <label>X Small
+                        <input onClick={this.update("size")} type="radio" name="size" value="XS" />
+                    </label>
+                    <label>Small
+                        <input onClick={this.update("size")} type="radio" name="size" value="S" />
+                    </label>
+                    <label>Medium
+                        <input onClick={this.update("size")} type="radio" name="size" value="M" />
+                    </label>
+                    <label>Large
+                        <input onClick={this.update("size")} type="radio" name="size" value="L" />
+                    </label>
+                    <label>X Large
+                        <input onClick={this.update("size")} type="radio" name="size" value="XL" />
+                    </label>
+                </div>
+                
+                <button onClick={ this.handleAddToCart }>Add to Cart</button>
                 {this.renderCreateReview()}
                 <ul className="product-show-reviews">
                     {
