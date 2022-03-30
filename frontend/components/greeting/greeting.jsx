@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { AiOutlineUser } from 'react-icons/ai';
 
 class Greeting extends React.Component {
     constructor(props){
@@ -12,6 +13,7 @@ class Greeting extends React.Component {
             return(
                 <div className="login-header">
                     <h2>Hello, {currentUser.username}</h2>
+                    <AiOutlineUser size='24px' />
                     <button onClick={this.props.logout}>Log Out</button>
                 </div>
             )

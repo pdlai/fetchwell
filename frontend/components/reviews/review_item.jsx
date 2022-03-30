@@ -11,7 +11,7 @@ class ReviewItem extends React.Component {
             <li>
                 <div>{ review.nickname }</div>
                 <div>{ review.location }</div>
-                <div>{ review.overall_fit }</div>
+                <div>Overall Fit: { review.overall_fit }</div>
                 <div>{ review.rating }</div>
                 <div>{ review.summary }</div>
                 <div>{ review.created_at }</div>

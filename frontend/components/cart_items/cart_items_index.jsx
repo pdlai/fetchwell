@@ -15,13 +15,16 @@ class CartItemsIndex extends React.Component {
         if(!this.props.cartItems.length) return (<div>Your cart is empty.</div>)
         return(
             <div>
-                <div onClick={this.props.closeModal} className="close-x">X</div>
+                <div onClick={this.props.closeModal} className="close-button">Close</div>
+                <div>Your Bag</div>
                 <ul className="cart-items-index-list">
                     {
                         this.props.cartItems.map(cartItem => (
                             <CartItemsIndexItem
                                 cartItem={cartItem}
-                                key={cartItem.id} />
+                                key={cartItem.id} 
+                                editCartItem={this.props.editCartItem}
+                                removeCartItem={this.props.removeCartItem} />
                         ))
                     }
                 </ul>

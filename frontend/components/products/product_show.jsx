@@ -1,7 +1,6 @@
 import React from 'react';
 import ReviewItem from '../reviews/review_item';
 import { Link } from "react-router-dom";
-import { addCartItem, editCartItem } from '../../actions/cart_actions';
 
 class ProductShow extends React.Component {
     constructor(props){
@@ -9,6 +8,7 @@ class ProductShow extends React.Component {
         this.handleAddToCart = this.handleAddToCart.bind(this);
         this.state = {
             size: "",
+            quantity: 1
         }
     }
 
@@ -40,7 +40,7 @@ class ProductShow extends React.Component {
             for (let cartItem of cartItems){
                 if (cartItem.product_id === product.id && cartItem.size === this.state.size){
                     const newQuantity = cartItem.quantity + 1;
-                    this.props.editCartItem({ id: cartItem.id, product_id: product.id, user_id: this.props.currentUser.id, size: this.state.size, quantity: newQuantity })
+                    this.props.editCartItem( Object.assign({}, cartItem, { quantity: newQuantity, user_id: this.props.currentUser.id}) )
                         .then(
                             () => this.props.openModal('cart'),
                             () => this.setState({ errors: this.props.errors })
@@ -48,7 +48,7 @@ class ProductShow extends React.Component {
                     return;
                 }
             }
-            this.props.addCartItem({ product_id: product.id, user_id: this.props.currentUser.id, size: this.state.size, quantity: 1 })
+            this.props.addCartItem( Object.assign({}, this.state, { product_id: this.props.product.id, user_id: this.props.currentUser.id}) )
                 .then(
                     () => this.props.openModal('cart'),
                     () => this.setState({ errors: this.props.errors })
