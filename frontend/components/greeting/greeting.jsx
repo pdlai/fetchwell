@@ -12,17 +12,17 @@ class Greeting extends React.Component {
         if (currentUser){
             return(
                 <div className="login-header">
-                    <h2>Hello, {currentUser.username}</h2>
                     <AiOutlineUser size='24px' />
+                    <div>Hi, {currentUser.username}</div>
                     <button onClick={this.props.logout}>Log Out</button>
                 </div>
             )
         } else {
             return(
                 <nav className="login-signup">
-                    <button onClick={() => this.props.openModal('login')}>Login</button>
-                    &nbsp;or&nbsp;
-                    <button onClick={() => this.props.openModal('signup')}>Signup</button>
+                    <button onClick={() => this.props.openModal('login')}><AiOutlineUser size='24px' /></button>
+                    {/* &nbsp;or&nbsp;
+                    <button onClick={() => this.props.openModal('signup')}>Signup</button> */}
                 </nav>
             )
         }

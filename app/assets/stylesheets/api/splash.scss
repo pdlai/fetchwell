@@ -1,0 +1,25 @@
+
+.splash-container {
+    
+    * {
+        max-width: 400px;
+    }
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+
+    .splash-section1 {
+
+        img {
+            max-width: inherit;
+        }
+    }
+    // .testing2 {
+    //     font-family: 'ProbaPro-Bold';
+    //     letter-spacing: 0.1em;
+    //     background-color: #F8BF15;
+    //     padding: 20px;
+    // }
+}

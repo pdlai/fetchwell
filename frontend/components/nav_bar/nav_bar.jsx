@@ -4,13 +4,12 @@ import { Link } from "react-router-dom";
 import { withRouter } from "react-router";
 import { IoIosSearch } from 'react-icons/io';
 import { BsBagFill, BsBag } from 'react-icons/bs';
-import LogoImage from '/public/fetchwell-logo-bold.png';
+import LogoImage from '/app/assets/images/fetchwell-logo-bold.png';
 
 class NavBar extends React.Component {
     constructor(props){
         super(props);
         this.renderCartItemsButton = this.renderCartItemsButton.bind(this);
-        this.renderCartItemsCount = this.renderCartItemsCount.bind(this);
         this.countItems = this.countItems.bind(this);
     }
 
@@ -26,24 +25,19 @@ class NavBar extends React.Component {
         let count = this.countItems();
         if (this.props.currentUser){
             return(
-                <button onClick={() => this.props.openModal('cart')}>
-                    { count >= 1 ? < BsBagFill size='18px' /> : < BsBag size='18px' /> }
+                <button className="nav-item-count" onClick={() => this.props.openModal('cart')}>
+                    { count >= 1 ? < BsBagFill size='22px' /> : < BsBag size='22px' /> }
+                    <div>{count}</div>
                 </button>
             )
         } else {
             return(
-                <button onClick={() => this.props.openModal('login')}>
-                    { count >= 1 ? < BsBagFill size='18px' /> : < BsBag size='18px' /> }
+                <button className="nav-item-count" onClick={() => this.props.openModal('login')}>
+                    { count >= 1 ? < BsBagFill size='22px' /> : < BsBag size='22px' /> }
+                    <div>{count}</div>
                 </button>
             )
         }
-    }
-
-    renderCartItemsCount(){
-        let count = this.countItems();
-        return(
-            <div>{count}</div>
-        )
     }
 
     countItems(){
@@ -62,6 +56,11 @@ class NavBar extends React.Component {
                     {/* <Link to="/">Womens</Link>
                     <Link to="/">Mens</Link> */}
 
+                    <div className="nav-bar-banner">
+                        <p>Guess What? So Many New Arrivals Just Landed On The Site.&nbsp;
+                            <Link className="nav-link" to="/womens/clothing" onClick={ () => this.handleClick({ gender: "womens", category: "clothing" })}>Start Shopping Now.</Link>
+                        </p>
+                    </div>
                     <div className="nav-bar">
                         <Link to="/" className="header-link">
                             <img src={LogoImage} alt="fetchwell logo" />
@@ -79,14 +78,13 @@ class NavBar extends React.Component {
                             <li> <Link className="nav-link" to="/">Preloved</Link> </li>
                         </ul>
                         <div className="icon-links">
-                            <IoIosSearch size='36px' />
+                            <IoIosSearch size='28px' />
                             <GreetingContainer />
                             { this.renderCartItemsButton() }
-                            { this.renderCartItemsCount() }
                         </div>
                     </div>
                 </div>
-                <div className="nav-bar-spacer">&nbsp;</div>
+                <div id="nav-bar-spacer">&nbsp;</div>
             </div>
         )
     }
