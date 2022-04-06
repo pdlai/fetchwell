@@ -1,25 +1,84 @@
 
 .splash-container {
     
+    a:link { text-decoration: none; }
+    a:visited { text-decoration: none; }
+    a:hover { text-decoration: none; }
+    a:active { text-decoration: none; }
+
     * {
-        max-width: 400px;
+        max-width: 1200px;
+        width: 100%;
     }
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     text-align: center;
+}
 
-    .splash-section1 {
-
-        img {
-            max-width: inherit;
-        }
+.splash-section1 {
+    position: relative;
+    .section1-box {
+        background-color: rgba(255,255,255,0.7);
+        width: 280px;
+        min-width: 280px;
+        max-width: 320px;
+        height: 240px;
+        min-height: 240px;
+        max-height: 280px;
+        padding: 2%;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
     }
-    // .testing2 {
-    //     font-family: 'ProbaPro-Bold';
-    //     letter-spacing: 0.1em;
-    //     background-color: #F8BF15;
-    //     padding: 20px;
-    // }
+    .section1-box-sub1 {
+        font-family: "ProbaPro-Bold";
+        font-size: 2.5em;
+        letter-spacing: 0.075em;
+        text-transform: uppercase;
+        line-height: 110%;
+        padding-top: 5%;
+        padding-bottom: 5%;
+    }
+    .section1-box-sub2 {
+        font-family: "ProbaPro-Regular";
+        font-size: 0.9em;
+        letter-spacing: 0.05em;
+        padding-bottom: 10%;
+    }
+    a {
+        font-family: "ProbaPro-Bold";
+        text-transform: uppercase;
+        background-color: black;
+        letter-spacing: 0.1em;
+        font-size: .75em;
+        color: white;
+        padding: 7%;
+        // padding-bottom: 5%;
+    }
+    img {
+        max-width: inherit;
+    }
+}
+
+.splash-section2 {
+    display: flex;
+    flex-direction: row;
+    margin: 4vh;
+}
+
+.splash-section2 > div {
+    list-style: none;
+    flex: 0 0 33.33%;
+    div {
+        font-family: "ProbaPro-Bold";
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+    }
+    div:first-of-type {
+        text-transform: none;
+        font-family: "ProbaPro-Regular";
+    }
 }

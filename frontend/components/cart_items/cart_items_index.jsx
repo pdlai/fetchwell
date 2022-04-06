@@ -14,7 +14,7 @@ class CartItemsIndex extends React.Component {
     render(){
         if(!this.props.cartItems.length) return (<div>Your cart is empty.</div>)
         return(
-            <div>
+            <div className="cart-modal">
                 <div onClick={this.props.closeModal} className="close-button">Close</div>
                 <div>Your Bag</div>
                 <ul className="cart-items-index-list">

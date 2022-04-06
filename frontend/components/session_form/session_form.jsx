@@ -9,6 +9,7 @@ class SessionForm extends React.Component {
             password: ""
         };
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleDemoUser = this.handleDemoUser.bind(this);
     }
 
     handleSubmit(e){
@@ -33,6 +34,13 @@ class SessionForm extends React.Component {
                 ))}
             </ul>
         )
+    }
+
+    handleDemoUser(e){
+        e.preventDefault();
+        this.setState({ username: "user1", password: "password" });
+        const user = { username: "user1", password: "password" };
+        this.props.processForm(user).then(this.props.closeModal).then(() => this.props.fetchCartItems(this.props.currentUser.id));
     }
 
     render(){
@@ -60,6 +68,7 @@ class SessionForm extends React.Component {
                     </label>
                     <input type="submit" value={this.props.formType}/>
                 </form>
+                <button onClick={this.handleDemoUser}>Demo User</button>
                 <br/>
             </div>
         )
