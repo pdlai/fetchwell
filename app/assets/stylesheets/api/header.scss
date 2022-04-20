@@ -32,6 +32,7 @@
         display: table;
         height: 4vh;
         width: 100%;
+        letter-spacing: 0.07em;
         text-transform: uppercase;
         white-space: nowrap;
         font-size: 0.9em;
@@ -119,10 +120,16 @@
         .login-header, .login-signup {
             button {
                 padding: 4px;
+                background-color: #6882B5;
+            }
+            div {
+                background-color: pink;
             }
             svg {
-                // background-color: #F8BF15;
+                background-color: #F8BF15;
                 border-radius: 25px;
+                margin-bottom: 0;
+                padding-bottom: 0;
             }
         }
     }
