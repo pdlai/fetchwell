@@ -1,3 +1,10 @@
 // Place all the styles related to the api/products controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.product-show-item {
+    .reversed {
+        -webkit-transform: scaleX(-1);
+        transform: scaleX(-1);
+    }
+}

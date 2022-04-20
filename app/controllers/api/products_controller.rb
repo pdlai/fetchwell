@@ -1,14 +1,14 @@
 class Api::ProductsController < ApplicationController
 
     def index
-        # show all products for now, later will have params for filter
+        # filter by category for all products
         puts params[:filters]
-        @products = Product.where(category: params[:filters][:category])
+        @products = Product.with_attached_photos.where(category: params[:filters][:category])
         render :index
     end
 
     def show
-        @product = Product.find(params[:id])
+        @product = Product.with_attached_photos.find(params[:id])
         render :show
     end
 

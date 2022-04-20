@@ -88,6 +88,7 @@ class ProductShow extends React.Component {
                     <div>{ product.description }</div>
                     <img src={ product.photoUrls[0] } />
                     <img src={ product.photoUrls[1] } />
+                    <img src={ product.photoUrls[1] } className="reversed" />
                 </div>
 
                 {this.renderErrors()}
