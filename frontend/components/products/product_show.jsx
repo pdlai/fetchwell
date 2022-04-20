@@ -86,7 +86,8 @@ class ProductShow extends React.Component {
                     <div>{ product.name }</div>
                     <div>{ product.price }</div>
                     <div>{ product.description }</div>
-                    <div>{ product.image_url }</div>
+                    <img src={ product.photoUrls[0] } />
+                    <img src={ product.photoUrls[1] } />
                 </div>
 
                 {this.renderErrors()}

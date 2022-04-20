@@ -5,24 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-
-# user1 = User.create(username: Faker::Name.name, email: Faker::Internet.email, password: 'password')
-# user2 = User.create(username: Faker::Name.name, email: Faker::Internet.email, password: 'password')
-
-# chirp1 = Chirp.create(body: Faker::Movies::HarryPotter.quote, author_id: user1.id)
-# chirp2 = Chirp.create(body: Faker::Movies::HarryPotter.quote, author_id: user1.id)
-# chirp3 = Chirp.create(body: Faker::Movies::HarryPotter.quote, author_id: user1.id)
-# chirp4 = Chirp.create(body: Faker::Movies::HarryPotter.quote, author_id: user2.id)
-# chirp5 = Chirp.create(body: Faker::Movies::HarryPotter.quote, author_id: user2.id)
-# chirp6 = Chirp.create(body: Faker::Movies::HarryPotter.quote, author_id: user2.id)
-
-# Like.create(user_id: user3.id, chirp_id: chirp1.id)
-# Like.create(user_id: user4.id, chirp_id: chirp2.id)
-# Like.create(user_id: user5.id, chirp_id: chirp3.id)
-# Like.create(user_id: user3.id, chirp_id: chirp3.id)
-# Like.create(user_id: user4.id, chirp_id: chirp1.id)
-# Like.create(user_id: user5.id, chirp_id: chirp2.id)
-
+require 'open-uri'
 
 Like.delete_all
 Review.delete_all
@@ -31,7 +14,7 @@ User.delete_all
 Product.delete_all
 
 Faker::Name.unique.clear
-demouser = User.create(username: "Demo User", password: 'password')
+demouser = User.create(username: "DemoUser", password: 'password')
 user1 = User.create(username: "user1", password: 'password')
 user2 = User.create(username: Faker::Name.unique.name, password: 'password')
 user3 = User.create(username: Faker::Name.unique.name, password: 'password')
@@ -42,15 +25,33 @@ user7 = User.create(username: Faker::Name.unique.name, password: 'password')
 user8 = User.create(username: Faker::Name.unique.name, password: 'password')
 user9 = User.create(username: Faker::Name.unique.name, password: 'password')
 
-pants1 = Product.create(name: "pants1", gender: "womens", category: "clothing", subcategory: "pants", price: 1.99, description: "nice pants", image_url: "/assets/images/test_pants.jpg")
-pants2 = Product.create(name: "pants2", gender: "womens", category: "clothing", subcategory: "pants", price: 2.99, description: "nice pants", image_url: "/assets/images/test_pants.jpg")
-pants3 = Product.create(name: "pants3", gender: "womens", category: "clothing", subcategory: "pants", price: 3.99, description: "nice pants", image_url: "/assets/images/test_pants.jpg")
-pants4 = Product.create(name: "pants4", gender: "womens", category: "clothing", subcategory: "pants", price: 4.99, description: "nice pants", image_url: "/assets/images/test_pants.jpg")
-pants5 = Product.create(name: "berks5", gender: "womens", category: "shoes", subcategory: "sandals", price: 5.99, description: "nice sands", image_url: "/assets/images/test_pants.jpg")
-pants6 = Product.create(name: "berks6", gender: "womens", category: "shoes", subcategory: "sandals", price: 6.99, description: "nice sands", image_url: "/assets/images/test_pants.jpg")
-pants7 = Product.create(name: "berks7", gender: "womens", category: "shoes", subcategory: "sandals", price: 7.99, description: "nice sands", image_url: "/assets/images/test_pants.jpg")
-pants8 = Product.create(name: "berks8", gender: "womens", category: "shoes", subcategory: "sandals", price: 8.99, description: "nice sands", image_url: "/assets/images/test_pants.jpg")
-pants9 = Product.create(name: "berks9", gender: "womens", category: "shoes", subcategory: "sandals", price: 9.99, description: "nice sands", image_url: "/assets/images/test_pants.jpg")
+pants1 = Product.create(name: "pants1", gender: "womens", category: "clothing", subcategory: "pants", price: 1.99, description: "nice pants")
+pants1.photos.attach(io: open("https://fetchwell-s3-pro.s3.us-west-2.amazonaws.com/linkedin3.png"), filename: "test1.png")
+pants1.photos.attach(io: open("https://fetchwell-s3-pro.s3.us-west-2.amazonaws.com/newfavicon4.png"), filename: "test2.png")
+pants2 = Product.create(name: "pants2", gender: "womens", category: "clothing", subcategory: "pants", price: 2.99, description: "nice pants")
+pants2.photos.attach(io: open("https://fetchwell-s3-pro.s3.us-west-2.amazonaws.com/linkedin3.png"), filename: "test1.png")
+pants2.photos.attach(io: open("https://fetchwell-s3-pro.s3.us-west-2.amazonaws.com/newfavicon4.png"), filename: "test2.png")
+pants3 = Product.create(name: "pants3", gender: "womens", category: "clothing", subcategory: "pants", price: 3.99, description: "nice pants")
+pants3.photos.attach(io: open("https://fetchwell-s3-pro.s3.us-west-2.amazonaws.com/linkedin3.png"), filename: "test1.png")
+pants3.photos.attach(io: open("https://fetchwell-s3-pro.s3.us-west-2.amazonaws.com/newfavicon4.png"), filename: "test2.png")
+pants4 = Product.create(name: "pants4", gender: "womens", category: "clothing", subcategory: "pants", price: 4.99, description: "nice pants")
+pants4.photos.attach(io: open("https://fetchwell-s3-pro.s3.us-west-2.amazonaws.com/linkedin3.png"), filename: "test1.png")
+pants4.photos.attach(io: open("https://fetchwell-s3-pro.s3.us-west-2.amazonaws.com/newfavicon4.png"), filename: "test2.png")
+pants5 = Product.create(name: "berks5", gender: "womens", category: "shoes", subcategory: "sandals", price: 5.99, description: "nice sands")
+pants5.photos.attach(io: open("https://fetchwell-s3-pro.s3.us-west-2.amazonaws.com/linkedin3.png"), filename: "test1.png")
+pants5.photos.attach(io: open("https://fetchwell-s3-pro.s3.us-west-2.amazonaws.com/newfavicon4.png"), filename: "test2.png")
+pants6 = Product.create(name: "berks6", gender: "womens", category: "shoes", subcategory: "sandals", price: 6.99, description: "nice sands")
+pants6.photos.attach(io: open("https://fetchwell-s3-pro.s3.us-west-2.amazonaws.com/linkedin3.png"), filename: "test1.png")
+pants6.photos.attach(io: open("https://fetchwell-s3-pro.s3.us-west-2.amazonaws.com/newfavicon4.png"), filename: "test2.png")
+pants7 = Product.create(name: "berks7", gender: "womens", category: "shoes", subcategory: "sandals", price: 7.99, description: "nice sands")
+pants7.photos.attach(io: open("https://fetchwell-s3-pro.s3.us-west-2.amazonaws.com/linkedin3.png"), filename: "test1.png")
+pants7.photos.attach(io: open("https://fetchwell-s3-pro.s3.us-west-2.amazonaws.com/newfavicon4.png"), filename: "test2.png")
+pants8 = Product.create(name: "berks8", gender: "womens", category: "shoes", subcategory: "sandals", price: 8.99, description: "nice sands")
+pants8.photos.attach(io: open("https://fetchwell-s3-pro.s3.us-west-2.amazonaws.com/linkedin3.png"), filename: "test1.png")
+pants8.photos.attach(io: open("https://fetchwell-s3-pro.s3.us-west-2.amazonaws.com/newfavicon4.png"), filename: "test2.png")
+pants9 = Product.create(name: "berks9", gender: "womens", category: "shoes", subcategory: "sandals", price: 9.99, description: "nice sands")
+pants9.photos.attach(io: open("https://fetchwell-s3-pro.s3.us-west-2.amazonaws.com/linkedin3.png"), filename: "test1.png")
+pants9.photos.attach(io: open("https://fetchwell-s3-pro.s3.us-west-2.amazonaws.com/newfavicon4.png"), filename: "test2.png")
 
 CartItem.create(quantity: 1, size: "M", user_id: user1.id, product_id: pants1.id)
 CartItem.create(quantity: 2, size: "S", user_id: user1.id, product_id: pants1.id)

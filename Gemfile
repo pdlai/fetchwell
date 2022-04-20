@@ -33,6 +33,9 @@ gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'mast
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
+# s3 images
+gem 'aws-sdk-s3'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
