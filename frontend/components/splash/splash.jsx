@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Section1_1 from '/public/section1-1.jpg';
+import Section1_1 from './images/section1-1.jpg';
 import Section2_1 from '/app/assets/images/section2-1.jpg';
 import Section2_2 from '/app/assets/images/section2-2.jpg';
 import Section2_3 from '/app/assets/images/section2-3.jpg';
