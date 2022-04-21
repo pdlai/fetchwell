@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import { withRouter } from "react-router";
 import { IoIosSearch } from 'react-icons/io';
 import { BsBagFill, BsBag } from 'react-icons/bs';
-import LogoImage from '/app/assets/images/fetchwell-logo-bold.png';
 
 class NavBar extends React.Component {
     constructor(props){
@@ -63,7 +62,7 @@ class NavBar extends React.Component {
                     </div>
                     <div className="nav-bar">
                         <Link to="/" className="header-link">
-                            <img src={LogoImage} alt="fetchwell logo" />
+                            <img src='./fetchwell-logo-bold.png' alt="fetchwell logo" />
                         </Link>
                         <ul className="nav-links">
                             <li> <Link className="nav-link" to="/womens/new" onClick={ () => this.handleClick({ gender: "womens", category: "new" })}>New</Link> </li>
