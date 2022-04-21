@@ -6,6 +6,7 @@ import ProductShowContainer from "./products/product_show_container";
 import NavBarContainer from "./nav_bar/nav_bar_container"
 import ReviewFormContainer from "./reviews/review_form_container"
 import SplashContainer from "./splash/splash_container";
+import Footer from "./splash/footer";
 import Modal from "./modal/modal";
 
 import { AuthRoute, ProtectedRoute } from "../util/route_util";
@@ -31,6 +32,8 @@ class App extends React.Component {
                     <Route path="/" component={SplashContainer} />
                     <Redirect to="/" />
                 </Switch>
+
+                <Footer />
 
             </div>
         )
