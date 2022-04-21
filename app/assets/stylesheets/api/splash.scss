@@ -95,3 +95,16 @@
         font-family: "ProbaPro-Regular";
     }
 }
+
+.splash-section4 {
+    .splash-section4-sub1 {
+        img {
+            width: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            text-align: center;
+        }
+    }
+}

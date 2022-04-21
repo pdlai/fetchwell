@@ -27,7 +27,7 @@ class Splash extends React.Component {
         return (
           <div className="splash-container">
             <div className="splash-section1">
-              <img src={Section1_1} alt="splash-section1" />
+              <img src='./section1-1.jpg' alt="splash-section1" />
               <div className="section1-box">
                 <div className="section1-box-sub1">
                   In With
