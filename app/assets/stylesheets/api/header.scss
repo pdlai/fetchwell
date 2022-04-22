@@ -1,7 +1,7 @@
 
 #nav-bar-spacer {
     width: 100%;
-    height: 14vh;
+    height: 10vh;
 }
 
 .nav-bar-container {
@@ -23,7 +23,7 @@
     a:hover { text-decoration: underline; }
     a:active { text-decoration: underline; }
     a:hover {
-        text-decoration-thickness: .2em;
+        text-decoration-thickness: .15em;
         text-underline-offset: .15em;
     }
 
@@ -53,6 +53,7 @@
     .nav-bar {
         // background-color: lightcoral;
         width: 100%;
+        height: 6vh;
         display: flex;
         align-items: center;
         flex-direction: row;
@@ -62,6 +63,13 @@
     .header-link {
         // background-color: aqua;
         float: left;
+        height: 3px;
+        margin-top: -3vh;
+        margin-bottom: 1vh;
+        margin-left: 1vh;
+        img {
+            height: 4vh;
+        }
     }
 
     .nav-links {
@@ -70,7 +78,7 @@
         margin: 0px;
         padding: 5px;
         width: 100%;
-        font-size: 1em;
+        font-size: 1.05em;
         text-transform: uppercase;
         overflow: hidden;
         li {
@@ -120,13 +128,14 @@
         .login-header, .login-signup {
             button {
                 padding: 4px;
-                background-color: #6882B5;
+                max-height: 2vh;
             }
             div {
-                background-color: pink;
+                max-height: 1.5vh;
             }
             svg {
                 background-color: #F8BF15;
+                max-height: 2vh;
                 border-radius: 25px;
                 margin-bottom: 0;
                 padding-bottom: 0;
