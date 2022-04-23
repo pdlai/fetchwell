@@ -1,3 +1,100 @@
 .login-signup-form-container {
-    background-color: whitesmoke;
+    background-color: white;
+    width: 375px;
+    height: 615px;
+    .login-signup-form {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        .form-title {
+            margin-top: 30px;
+            font-family: 'ProbaPro-Bold';
+            text-transform: uppercase;
+            font-size: 1.2em;
+            letter-spacing: 0.1em;
+            margin-bottom: 5px;
+        }
+        .form-subtitle {
+            font-size: 0.9em;
+        }
+        #session-form {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-top: 10px;
+            label {
+                padding: 8px;
+                margin: 6px;
+                width: 75%;
+                border: 1px solid black;
+            }
+            input[type="text"], input[type="password"] {
+                font-size: 0.8em;
+                letter-spacing: 0.02em;
+            }
+            label input {
+                border: 0;
+                outline: 0;
+                width: 95%;
+            }
+            label input:focus {
+                outline: 0;
+            }
+            .sign-in-options {
+                width: 80%;
+                margin-top: 5px;
+                margin-bottom: 15px;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                letter-spacing: 0.02em;
+                font-size: 0.9em;
+                input[type="checkbox"] {
+                    accent-color: black;
+                    width: 16px;
+                    height: 16px;
+                    margin-right: 8px;
+                }
+                div:last-child {
+                    text-decoration: underline;
+                    text-decoration-thickness: 0.1px;
+                    text-underline-offset: 0.1em;
+                }
+                div:last-child:hover {
+                    cursor: pointer;
+                }
+            }
+        }
+        #session-submit-button:hover, #session-demo-button:hover {
+            cursor: pointer;
+        }
+        #session-submit-button, #session-demo-button {
+            width: 80%;
+            height: 40px;
+            margin-bottom: 15px;
+            background-color: black;
+            border: none;
+            color: white;
+            font-family: "ProbaPro-SemiBold";
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            font-size: 0.8em;
+        }
+    }
+
+    .close-x:hover {
+        cursor: pointer;
+    }
+    .close-x {
+        position: absolute;
+        font-size: 1.5em;
+        float: right;
+        padding: 5px;
+        padding-left: 9px;
+        padding-right: 9px;
+        right: 0;
+        margin: 15px;
+    }
 }

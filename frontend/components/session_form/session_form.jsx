@@ -6,7 +6,9 @@ class SessionForm extends React.Component {
         super(props);
         this.state = {
             username: "",
-            password: ""
+            password: "",
+            firstName: "",
+            lastName: ""
         };
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleDemoUser = this.handleDemoUser.bind(this);
@@ -25,6 +27,7 @@ class SessionForm extends React.Component {
     }
 
     renderErrors(){
+        if (!this.props.errors.length) return;
         return(
             <ul>
                 {this.props.errors.map((error, i) => (
@@ -44,32 +47,97 @@ class SessionForm extends React.Component {
     }
 
     render(){
+        let formType = this.props.formType;
+        let formSubtitle;
+        let formFields;
+        let signInOptions;
+        let submitButton;
+        let demoButton;
+        let legalStuff;
+        let otherForm;
+
+        if (formType === 'Join Now'){
+            formSubtitle = <div className='form-subtitle'>And Start earning those points (!).</div>
+            formFields = <div>
+                <label>
+                    <input 
+                        type="text"
+                        value={this.state.firstName}
+                        onChange={this.update('firstName')}
+                        placeholder="First Name"
+                    />
+                </label>
+                <label>
+                    <input 
+                        type="text"
+                        value={this.state.lastName}
+                        onChange={this.update('lastName')}
+                        placeholder="Last Name"
+                    />
+                </label>
+            </div>
+            signInOptions = <div></div>
+            submitButton = <input type="submit" value="Sign Up Now" />
+            demoButton= <div></div>
+            legalStuff = <div>By clicking "Sign Up Now," you agree to a bunch of 
+                <div>terms and conditions</div>that allow us to sell your information, you
+                can see in small font our <div>privacy policy</div>.
+            </div>
+            otherForm = <div className='other-form-container'>
+                <div>Already an insider?</div>
+                <div>{this.props.otherForm}</div>
+            </div>
+        } else {
+            // formSubtitle = <div></div>
+            formFields = <div></div>
+            signInOptions = <div className="sign-in-options">
+                <div><input type="checkbox"/>Remember me</div>
+                <div>Forgot password?</div>
+            </div>
+            submitButton = <input id="session-submit-button" type="submit" value="Let's Go"/>
+            demoButton= <button id="session-demo-button" onClick={this.handleDemoUser}>Demo User</button>
+            legalStuff = <div></div>
+            otherForm = <div className='other-form-container'>
+                <div>Don't have an account?</div>
+                <div>{this.props.otherForm}</div>
+            </div>
+        }
+
         return(
             <div className="login-signup-form-container">
-                <br/>
                 <div onClick={this.props.closeModal} className="close-x">X</div>
-                Please {this.props.formType} or {this.props.otherForm}
-                {this.renderErrors()}
-                <form onSubmit={this.handleSubmit}>
-                    <label>Username:
-                        <input 
-                            type="text"
-                            value={this.state.username}
-                            onChange={this.update('username')}
-                        />
-                    </label>
+
+                <div className='login-signup-form'>
+                    <div className='form-title'>{this.props.formType}</div>
+                    {formSubtitle}
+                    {this.renderErrors()}
+                    <form onSubmit={this.handleSubmit} id="session-form">
+                        {formFields}
+                        <label>
+                            <input 
+                                type="text"
+                                value={this.state.username}
+                                onChange={this.update('username')}
+                                placeholder="Username"
+                            />
+                        </label>
+                        <label>
+                            <input
+                                type="password"
+                                value={this.state.password}
+                                onChange={this.update('password')}
+                                placeholder="Password"
+                            />
+                        </label>
+                        {signInOptions}
+                        {submitButton}
+                    </form>
+                    {demoButton}
+                    {legalStuff}
                     <br/>
-                    <label>Password:
-                        <input
-                            type="password"
-                            value={this.state.password}
-                            onChange={this.update('password')}
-                        />
-                    </label>
-                    <input type="submit" value={this.props.formType}/>
-                </form>
-                <button onClick={this.handleDemoUser}>Demo User</button>
-                <br/>
+                    {otherForm}
+                </div>
+
             </div>
         )
     }

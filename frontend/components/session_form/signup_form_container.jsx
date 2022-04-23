@@ -8,7 +8,7 @@ import { fetchCartItems } from "../../actions/cart_actions";
 const mapStateToProps = ( state ) => {
     return {
         errors: state.errors.session,
-        formType: 'Sign Up',
+        formType: 'Join Now',
         currentUser: state.entities.users[state.session.id],
     }
 }
@@ -18,7 +18,7 @@ const mapDispatchToProps = (dispatch) => {
         processForm: (user) => dispatch(signup(user)),
         otherForm: (
             <button onClick={() => dispatch(openModal('login'))}>
-                Login
+                Sign In
             </button>
         ),
         closeModal: () => dispatch(closeModal()),
