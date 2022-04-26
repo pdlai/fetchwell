@@ -12,17 +12,17 @@ function Modal({modal, closeModal}) {
   let component;
   switch (modal) {
     case 'login':
-      component = <div className="modal-child" onClick={e => e.stopPropagation()}>
+      component = <div className="modal-session" onClick={e => e.stopPropagation()}>
           <LoginFormContainer closeModal={closeModal} />
       </div>
       break;
     case 'signup':
-      component = <div className="modal-child" onClick={e => e.stopPropagation()}>
+      component = <div className="modal-session" onClick={e => e.stopPropagation()}>
         <SignupFormContainer closeModal={closeModal} />
       </div>
       break;
     case 'cart':
-      component = <div className="modal-child" onClick={e => e.stopPropagation()}>
+      component = <div className="modal-cart-items" onClick={e => e.stopPropagation()}>
         <CartItemsIndexContainer closeModal={closeModal} />
       </div>
       break;

@@ -20,8 +20,9 @@ class CartItemsIndexItem extends React.Component {
 
     render(){
         return(
-            <li>
-                <div onClick={() => this.props.removeCartItem(this.props.cartItem.id)}>X</div>
+            <li className='cart-items-index-item'>
+                <div id='cart-item-remove-x' onClick={() => this.props.removeCartItem(this.props.cartItem.id)}>X</div>
+                <img src={ this.props.cartItem.product.photoUrls[1] } />
                 <div>{ this.props.cartItem.product.name }</div>
                 <div>Size: { this.props.cartItem.size }</div>
 

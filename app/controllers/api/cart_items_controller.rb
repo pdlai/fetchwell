@@ -16,7 +16,6 @@ class Api::CartItemsController < ApplicationController
 
     def update
         @cartItem = CartItem.find(params[:id])
-        puts "update here"
         if @cartItem.update(cart_item_params)
             render :show
         else

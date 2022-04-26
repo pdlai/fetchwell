@@ -2,7 +2,147 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.modal-cart-items {
+    position: absolute;
+    right: 0;
+    width: 300px;
+}
 
-.cart-modal {
-    background-color: whitesmoke;
+.cart-container {
+    background-color: white;
+    height: 100vh;
+    .close-x:hover {
+        cursor: pointer;
+    }
+    .close-x {
+        position: absolute;
+        font-size: 1.5em;
+        padding: 5px;
+        padding-left: 9px;
+        padding-right: 9px;
+        right: 0;
+        margin: 5px;
+    }
+    .cart-title {
+        font-family: "ProbaPro-SemiBold";
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        font-size: 1em;
+        padding: 12px;
+        padding-left: 16px;
+        border-bottom: 1px solid grey;
+    }
+    .cart-items-index-list-container {
+        overflow: auto;
+        overflow-x: hidden;
+        margin-left: 20px;
+        border-bottom: 1px solid grey;
+        height: 70%;
+    }
+    .cart-items-index-list {
+        padding: 0;
+        margin: 0;
+        list-style-type: none;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        li:first-child {
+            border: none;
+        }
+        li {
+            border-top: 1px solid grey;
+        }
+    }
+}
+
+.promo-code-container {
+    display: flex;
+    flex-direction: column;
+    div {
+        display: flex;
+        justify-content: space-between;
+    }
+    .promo-dropdown:hover {
+        cursor: pointer;
+    }
+    .promo-dropdown {
+        flex-direction: row;
+        padding: 10px;
+        padding-left: 0;
+        padding-right: 0;
+        margin: 20px;
+        margin-top: 6px;
+        margin-bottom: 2px;
+        font-family: "ProbaPro-Bold";
+        text-transform: uppercase;
+        font-size: 0.8em;
+        letter-spacing: 0.08em;
+    }
+    .dropdown-menu {
+        margin: 20px;
+        margin-top: 5px;
+        margin-bottom: 10px;
+        justify-content: space-between;
+        * {
+            flex: 1;
+            width: 90%;
+            padding: 3%;
+        }
+        input {
+            margin-right: 2%;
+        }
+        button:hover {
+            cursor: pointer;
+            background-color: black;
+            color: white;
+        }
+        button {
+            margin-left: 2%;
+            background-color: white;
+            border: none;
+            font-family: "ProbaPro-SemiBold";
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            font-size: 0.8em;
+            border: 1px solid black;
+        }
+    }
+    #promo-message-success, #promo-message-error, #promo-message-blank {
+        margin: 20px;
+        margin-top: 0px;
+        margin-bottom: 10px;
+        div {
+            display: inline-block;
+        }
+    }
+    #promo-message-error {
+        color: red;
+    }
+}
+
+.cart-checkout {
+    display: flex;
+    flex-direction: column;
+    width: 86%;
+    margin: auto;
+    font-family: "ProbaPro-Bold";
+    text-transform: uppercase;
+    font-size: 0.8em;
+    letter-spacing: 0.08em;
+    padding-top: 15px;
+    border-top: 1px solid grey;
+    .subtotal {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+
+.cart-items-index-item {
+    width: 95%;
+    margin-right: 5%;
+    #cart-item-remove-x {
+        float: right;
+        margin: 10px;
+    }
 }
