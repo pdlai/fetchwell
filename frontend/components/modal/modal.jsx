@@ -12,22 +12,26 @@ function Modal({modal, closeModal}) {
   let component;
   switch (modal) {
     case 'login':
-      component = <LoginFormContainer closeModal={closeModal} />;
+      component = <div className="modal-child" onClick={e => e.stopPropagation()}>
+          <LoginFormContainer closeModal={closeModal} />
+      </div>
       break;
     case 'signup':
-      component = <SignupFormContainer closeModal={closeModal} />;
+      component = <div className="modal-child" onClick={e => e.stopPropagation()}>
+        <SignupFormContainer closeModal={closeModal} />
+      </div>
       break;
     case 'cart':
-      component = <CartItemsIndexContainer closeModal={closeModal} />;
+      component = <div className="modal-child" onClick={e => e.stopPropagation()}>
+        <CartItemsIndexContainer closeModal={closeModal} />
+      </div>
       break;
     default:
       return null;
   }
   return (
     <div className="modal-background" onClick={closeModal}>
-      <div className="modal-child" onClick={e => e.stopPropagation()}>
-        { component }
-      </div>
+      { component }
     </div>
   );
 }

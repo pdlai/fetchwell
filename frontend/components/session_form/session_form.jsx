@@ -29,7 +29,7 @@ class SessionForm extends React.Component {
     renderErrors(){
         if (!this.props.errors.length) return;
         return(
-            <ul>
+            <ul className='session-errors'>
                 {this.props.errors.map((error, i) => (
                     <li key={`error-${i}`}>
                         {error}
@@ -58,7 +58,7 @@ class SessionForm extends React.Component {
 
         if (formType === 'Join Now'){
             formSubtitle = <div className='form-subtitle'>And Start earning those points (!).</div>
-            formFields = <div>
+            formFields = <div id="first-last-name-field">
                 <label>
                     <input 
                         type="text"
@@ -77,10 +77,10 @@ class SessionForm extends React.Component {
                 </label>
             </div>
             signInOptions = <div></div>
-            submitButton = <input type="submit" value="Sign Up Now" />
+            submitButton = <input id="signup-submit-button" type="submit" value="Sign Up Now" />
             demoButton= <div></div>
-            legalStuff = <div>By clicking "Sign Up Now," you agree to a bunch of 
-                <div>terms and conditions</div>that allow us to sell your information, you
+            legalStuff = <div id="signup-legal-stuff">By clicking "Sign Up Now," you agree to a bunch of&nbsp;
+                <div>terms and conditions</div> that allow us to sell your information, you
                 can see in small font our <div>privacy policy</div>.
             </div>
             otherForm = <div className='other-form-container'>
