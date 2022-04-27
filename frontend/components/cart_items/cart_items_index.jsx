@@ -79,12 +79,18 @@ class CartItemsIndex extends React.Component {
     }
 
     render(){
-        if(!this.props.cartItems.length) return (<div>Your cart is empty.</div>)
+        let emptyDescription;
+        if(!this.props.cartItems.length){
+            emptyDescription = <div>Your Cart is empty.</div>
+        } else {
+            emptyDescription = <div></div>
+        }
         return(
             <div className="cart-container">
                 <div onClick={this.props.closeModal} className="close-x">X</div>
                 <div className='cart-title'>Your Bag</div>
                 <div className='cart-items-index-list-container'>
+                    {emptyDescription}
                     <ul className="cart-items-index-list">
                         {
                             this.props.cartItems.map(cartItem => (

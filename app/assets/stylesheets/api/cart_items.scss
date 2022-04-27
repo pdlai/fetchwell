@@ -24,7 +24,7 @@
         margin: 5px;
     }
     .cart-title {
-        font-family: "ProbaPro-SemiBold";
+        font-family: "ProbaPro-Bold";
         text-transform: uppercase;
         letter-spacing: 0.1em;
         font-size: 1em;
@@ -35,9 +35,8 @@
     .cart-items-index-list-container {
         overflow: auto;
         overflow-x: hidden;
-        margin-left: 20px;
-        border-bottom: 1px solid grey;
-        height: 70%;
+        margin-left: 15px;
+        max-height: 65%;
     }
     .cart-items-index-list {
         padding: 0;
@@ -55,9 +54,70 @@
     }
 }
 
+.cart-items-index-item {
+    width: 95%;
+    margin-right: 5%;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    #cart-item-remove-x:hover {
+        cursor: pointer;
+    }
+    #cart-item-remove-x {
+        position: absolute;
+        right: 0;
+        top: 0;
+        margin: 10px;
+    }
+    img {
+        margin-right: 12px;
+    }
+    .cart-item-price {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        margin: 10px;
+        font-family: "ProbaPro-Bold";
+        font-size: 0.9em;
+    }
+    .cart-item-details {
+        display: flex;
+        flex-direction: column;
+        width: 80%;
+        .cart-item-name {
+            font-family: "ProbaPro-Bold";
+            text-transform: uppercase;
+            font-size: 0.8em;
+        }
+        .cart-item-size, .cart-item-quantity {
+            font-size: 0.8em;
+        }
+        .cart-item-name, .cart-item-size {
+            margin-right: 30px;
+        }
+        .cart-item-quantity{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            svg {
+                padding-left: 2px;
+                padding-right: 2px;
+            }
+            svg:hover {
+                cursor: pointer;
+            }
+        }
+    }
+}
+
 .promo-code-container {
     display: flex;
     flex-direction: column;
+    width: 90%;
+    margin: auto;
+    border-top: 1px solid grey;
     div {
         display: flex;
         justify-content: space-between;
@@ -70,7 +130,6 @@
         padding: 10px;
         padding-left: 0;
         padding-right: 0;
-        margin: 20px;
         margin-top: 6px;
         margin-bottom: 2px;
         font-family: "ProbaPro-Bold";
@@ -79,7 +138,6 @@
         letter-spacing: 0.08em;
     }
     .dropdown-menu {
-        margin: 20px;
         margin-top: 5px;
         margin-bottom: 10px;
         justify-content: space-between;
@@ -108,7 +166,6 @@
         }
     }
     #promo-message-success, #promo-message-error, #promo-message-blank {
-        margin: 20px;
         margin-top: 0px;
         margin-bottom: 10px;
         div {
@@ -123,7 +180,7 @@
 .cart-checkout {
     display: flex;
     flex-direction: column;
-    width: 86%;
+    width: 90%;
     margin: auto;
     font-family: "ProbaPro-Bold";
     text-transform: uppercase;
@@ -136,13 +193,19 @@
         flex-direction: row;
         justify-content: space-between;
     }
-}
-
-.cart-items-index-item {
-    width: 95%;
-    margin-right: 5%;
-    #cart-item-remove-x {
-        float: right;
-        margin: 10px;
+    button {
+        height: 40px;
+        margin-top: 15px;
+        background-color: black;
+        border: none;
+        color: white;
+        font-family: "ProbaPro-SemiBold";
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        font-size: 0.9em;
+        bottom: min(0);
+    }
+    button:hover {
+        cursor: pointer;
     }
 }

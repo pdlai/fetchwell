@@ -7,7 +7,6 @@ class ProductIndexItem extends React.Component {
     }
 
     render(){
-        // using name for link until get images working
         return (
             <li>
                 <Link to={`/products/${this.props.product.id}`}>{ this.props.product.name }</Link>
