@@ -71,12 +71,11 @@ class Splash extends React.Component {
                 </div>
                 <Link
                   className="nav-link"
-                  to="/womens/clothing/jeans"
+                  to="/womens/denim"
                   onClick={() =>
                     this.handleClick({
                       gender: "womens",
-                      category: "clothing",
-                      subcategory: "jeans",
+                      category: "denim",
                     })
                   }
                 >

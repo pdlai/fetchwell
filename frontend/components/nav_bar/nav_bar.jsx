@@ -52,12 +52,10 @@ class NavBar extends React.Component {
         return(
             <div className="nav-bar-wrapper">
                 <div className="nav-bar-container">
-                    {/* <Link to="/">Womens</Link>
-                    <Link to="/">Mens</Link> */}
 
                     <div className="nav-bar-banner">
                         <p>Guess What? So Many New Arrivals Just Landed On The Site.&nbsp;
-                            <Link className="nav-link" to="/womens/clothing" onClick={ () => this.handleClick({ gender: "womens", category: "clothing" })}>Start Shopping Now.</Link>
+                            <Link className="nav-link" to="/womens/new" onClick={ () => this.handleClick({ gender: "womens", category: "new" })}>Start Shopping Now.</Link>
                         </p>
                     </div>
                     <div className="nav-bar">
@@ -66,7 +64,7 @@ class NavBar extends React.Component {
                         </Link>
                         <ul className="nav-links">
                             <li> <Link className="nav-link" to="/womens/new" onClick={ () => this.handleClick({ gender: "womens", category: "new" })}>New</Link> </li>
-                            <li> <Link className="nav-link" to="/womens/clothing/jeans" onClick={ () => this.handleClick({ gender: "womens", category: "clothing", subcategory: "jeans" })}>Denim</Link> </li>
+                            <li> <Link className="nav-link" to="/womens/denim" onClick={ () => this.handleClick({ gender: "womens", category: "denim" })}>Denim</Link> </li>
                             <li> <Link className="nav-link" to="/womens/clothing" onClick={ () => this.handleClick({ gender: "womens", category: "clothing" })}>Clothing</Link> </li>
                             <li> <Link className="nav-link" to="/womens/shoes" onClick={ () => this.handleClick({ gender: "womens", category: "shoes" })}>Shoes</Link> </li>
                             <li> <Link className="nav-link" to="/womens/accessories" onClick={ () => this.handleClick({ gender: "womens", category: "accessories" })}>Accessories</Link> </li>
