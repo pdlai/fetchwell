@@ -20,7 +20,19 @@ class ProductIndex extends React.Component {
 
     render(){
         return(
-            <div>
+            <div className='product-index-container'>
+                <div className='refinement-bar'>
+                    <ul className='refinement-category'>
+                        <li>stuf</li>
+                        <li>stuf</li>
+                    </ul>
+                    <ul>a</ul>
+                    <ul>bunch</ul>
+                    <ul>of</ul>
+                    <ul>other</ul>
+                    <ul>stuff</ul>
+                    <ul>here</ul>
+                </div>
                 <ul className="product-index-list">
                     {
                         this.props.products.map(product => (

@@ -8,10 +8,12 @@ class ProductIndexItem extends React.Component {
 
     render(){
         return (
-            <li>
-                <Link to={`/products/${this.props.product.id}`}>{ this.props.product.name }</Link>
-                <div>{ this.props.product.price }</div>
-                <div>{ this.props.product.image_url }</div>
+            <li className='product-index-item'>
+                <Link to={`/products/${this.props.product.id}`}>
+                    <img src={ this.props.product.photoUrls[1] } />
+                    <div>{ this.props.product.name }</div>
+                    <div>{ this.props.product.price }</div>
+                </Link>
             </li>
         )
     }
