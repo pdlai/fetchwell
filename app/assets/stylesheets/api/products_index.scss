@@ -2,3 +2,27 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.product-index-container {
+    max-width: 1440px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    .refinement-bar {
+        flex: 1;
+    }
+    .product-index-list {
+        flex: 2;
+    }
+}
+
+.product-index-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.product-index-item {
+    flex: 0 32%;
+    height: 100px;
+    margin-bottom: 2%;
+}
