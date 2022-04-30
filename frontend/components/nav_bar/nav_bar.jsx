@@ -69,10 +69,10 @@ class NavBar extends React.Component {
                             <li> <Link className="nav-link" to="/womens/shoes" onClick={ () => this.handleClick({ gender: "womens", category: "shoes" })}>Shoes</Link> </li>
                             <li> <Link className="nav-link" to="/womens/accessories" onClick={ () => this.handleClick({ gender: "womens", category: "accessories" })}>Accessories</Link> </li>
                             <li> <Link className="nav-link" to="/womens/brands" onClick={ () => this.handleClick({ gender: "womens", category: "brands" })}>Labels We Love</Link> </li>
-                            <li> <Link className="nav-link" to="/womens/sale" onClick={ () => this.handleClick({ gender: "womens", category: "sale" })}>Linkedin</Link> </li>
-
-                            <li> <Link className="nav-link" to="/">Github</Link> </li>
-                            <li> <Link className="nav-link" to="/">AngelList</Link> </li>
+                            
+                            <li> <a className="nav-link" href='https://github.com/pdlai' target='_blank'>Github</a> </li>
+                            <li> <a className="nav-link" href='https://angel.co/u/phillip-lai-1' target='_blank'>AngelList</a> </li>
+                            <li> <a className="nav-link" href='https://www.linkedin.com/in/philliplai/' target='_blank'>Linkedin</a> </li>
                         </ul>
                         <div className="icon-links">
                             <IoIosSearch size='28px' />
