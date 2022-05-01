@@ -1,5 +1,7 @@
 import React from 'react';
 import ProductIndexItem from './product_index_item';
+import { AiOutlineMinus, AiOutlinePlus } from 'react-icons/ai';
+import { Link } from 'react-router-dom';
 
 class ProductIndex extends React.Component {
     constructor(props){
@@ -46,6 +48,27 @@ class ProductIndex extends React.Component {
         }
     }
 
+    handleClick(filters){
+        this.props.updateFilters(filters);
+    }
+
+    refinementCategory(){
+        if (this.props.products.length > 0){
+            let category = {};
+            category[this.props.products[0].category] = true;
+            return (
+                <ul className='refinement-category'><div><div>Category</div><AiOutlineMinus /></div>
+                    <li className={ category['new'] ? 'refinement-category-selected' : '' }> <Link to="/womens/new" onClick={ () => this.handleClick({ gender: "womens", category: "new" })}>New</Link> </li>
+                    <li className={ category['denim'] ? 'refinement-category-selected' : '' }> <Link to="/womens/denim" onClick={ () => this.handleClick({ gender: "womens", category: "denim" })}>Denim</Link> </li>
+                    <li className={ category['clothing'] ? 'refinement-category-selected' : '' }> <Link to="/womens/clothing" onClick={ () => this.handleClick({ gender: "womens", category: "clothing" })}>Clothing</Link> </li>
+                    <li className={ category['shoes'] ? 'refinement-category-selected' : '' }> <Link to="/womens/shoes" onClick={ () => this.handleClick({ gender: "womens", category: "shoes" })}>Shoes</Link> </li>
+                    <li className={ category['accessories'] ? 'refinement-category-selected' : '' }> <Link to="/womens/accessories" onClick={ () => this.handleClick({ gender: "womens", category: "accessories" })}>Accessories</Link> </li>
+                    <li className={ category['brands'] ? 'refinement-category-selected' : '' }> <Link to="/womens/brands" onClick={ () => this.handleClick({ gender: "womens", category: "brands" })}>Labels We Love</Link> </li>
+                </ul>
+            )
+        }
+    }
+
     render(){
         return(
             <div className='product-index-container'>
@@ -53,19 +76,14 @@ class ProductIndex extends React.Component {
                 <div className='product-index'>
                     <div className='refinement-bar-container'>
                         <div className='refinement-bar'>
-                            <ul className='refinement-category'>Category
-                                <li>New</li>
-                                <li>Denim</li>
-                                <li>Clothing</li>
-                                <li>Shoes</li>
-                                <li>Accessories</li>
-                                <li>Brands</li>
-                            </ul>
-                            <ul>bunch</ul>
-                            <ul>of</ul>
-                            <ul>other</ul>
-                            <ul>categories</ul>
-                            <ul>here</ul>
+                            {this.refinementCategory()}
+                            <ul><div>bunch</div><AiOutlinePlus /></ul>
+                            <ul><div>of</div><AiOutlinePlus /></ul>
+                            <ul><div>stuff</div><AiOutlinePlus /></ul>
+                            <ul><div>here</div><AiOutlinePlus /></ul>
+                            <ul><a className="nav-link" href='https://github.com/pdlai' target='_blank'>Github</a><AiOutlinePlus /></ul>
+                            <ul><a className="nav-link" href='https://angel.co/u/phillip-lai-1' target='_blank'>AngelList</a><AiOutlinePlus /></ul>
+                            <ul><a className="nav-link" href='https://www.linkedin.com/in/philliplai/' target='_blank'>Linkedin</a><AiOutlinePlus /></ul>
                         </div>
                     </div>
                     <div className='product-index-list-container'>

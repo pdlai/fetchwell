@@ -40,7 +40,7 @@ class ProductIndexItem extends React.Component {
                     </div>
                     <div className='product-index-item-details'>
                         <div>{ this.props.product.name }</div>
-                        <div>${ this.props.product.price }</div>
+                        <div>${ this.props.product.price.toFixed(2) }</div>
                     </div>
                 </div>
             )

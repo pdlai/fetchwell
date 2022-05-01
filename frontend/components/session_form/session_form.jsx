@@ -41,8 +41,8 @@ class SessionForm extends React.Component {
 
     handleDemoUser(e){
         e.preventDefault();
-        this.setState({ username: "user1", password: "password" });
-        const user = { username: "user1", password: "password" };
+        this.setState({ username: "DemoUser", password: "password" });
+        const user = { username: "DemoUser", password: "password" };
         this.props.processForm(user).then(this.props.closeModal).then(() => this.props.fetchCartItems(this.props.currentUser.id));
     }
 

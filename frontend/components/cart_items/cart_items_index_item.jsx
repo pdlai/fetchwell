@@ -23,10 +23,10 @@ class CartItemsIndexItem extends React.Component {
         return(
             <li className='cart-items-index-item'>
                 <div id='cart-item-remove-x' onClick={() => this.props.removeCartItem(this.props.cartItem.id)}>X</div>
-                <img src={ this.props.cartItem.product.photoUrls[1] } width='80px' height='100px' />
-                <div className='cart-item-price'>${ this.props.cartItem.product.price }</div>
+                <img src={ this.props.cartItem.product.photoUrls[0] } width='80px' height='100px' />
+                <div className='cart-item-price'>${ this.props.cartItem.product.price.toFixed(2) }</div>
                 <div className='cart-item-details'>
-                    <div className='cart-item-name'>{ this.props.cartItem.product.name } sdfs sd sdfsdfsd fsd fsdfs dfdssdfs  sdfsd fsdfsf</div>
+                    <div className='cart-item-name'>{ this.props.cartItem.product.name }</div>
                     <div className='cart-item-size'>Size: { this.props.cartItem.size }</div>
                     <div className='cart-item-quantity'>Qty:
                         &nbsp;<AiOutlineMinus onClick={() => this.changeQuantity('decrease')} size='14px' />&nbsp;

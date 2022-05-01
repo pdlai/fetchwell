@@ -84,7 +84,7 @@ class ProductShow extends React.Component {
             <div>
                 <div className="product-show-item">
                     <div>{ product.name }</div>
-                    <div>{ product.price }</div>
+                    <div>${ product.price.toFixed(2) }</div>
                     <div>{ product.description }</div>
                     <img src={ product.photoUrls[0] } />
                     <img src={ product.photoUrls[1] } />
