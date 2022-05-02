@@ -270,6 +270,7 @@ listProducts.push(denim1, denim2, denim3, denim4, denim5, denim6, denim7, denim8
 listProducts.push(clothing1, clothing2, clothing3, clothing4, clothing5, clothing6, clothing7, clothing8, clothing9, clothing10, clothing11, clothing12, clothing13)
 listProducts.push(accessories1, accessories2, accessories3, accessories4, accessories5, accessories6, accessories7, accessories8, accessories9, accessories10, accessories11, accessories12, accessories13)
 listProducts.push(brands1, brands2, brands3, brands4, brands5, brands6, brands7, brands8, brands9, brands10, brands11, brands12, brands13)
+listProducts.push(shoes1, shoes2, shoes3, shoes4, shoes5, shoes6, shoes7, shoes8, shoes9, shoes10, shoes11, shoes12, shoes13)
 
 listProducts.each do |item|
     Review.create(location: Faker::Address.city + ", " + Faker::Address.state_abbr, overall_fit: Faker::Number.between(from: 30, to: 70), rating: Faker::Number.between(from: 4, to: 5), author_id: user1.id, nickname: Faker::Name.first_name, product_id: item.id, summary: "I love it", description: "I have waited forever for this product it was well worth the wait. Looks super cute and you can match it with almost anything! The fit is a little loose/relaxed, but I'm pretty sure that's how it's supposed to be. Overall, well surpassed my expectations and would buy from here again.")

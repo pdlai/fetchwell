@@ -41,9 +41,24 @@ class SessionForm extends React.Component {
 
     handleDemoUser(e){
         e.preventDefault();
-        this.setState({ username: "DemoUser", password: "password" });
-        const user = { username: "DemoUser", password: "password" };
-        this.props.processForm(user).then(this.props.closeModal).then(() => this.props.fetchCartItems(this.props.currentUser.id));
+        if (!this.demoTimer){
+            let count = 0;
+            let key;
+            let demoUser = 'DemoUserpassword'
+            this.demoTimer = setInterval(() => {
+                if (count < 8){
+                    key = 'username';
+                } else if (count < 16) {
+                    key = 'password';
+                }
+                this.setState({ [key] : this.state[key] + demoUser[count]})
+                count++;
+                if (count === 16) {
+                    clearInterval(this.demoTimer);
+                    this.props.processForm(this.state).then(this.props.closeModal).then(() => this.props.fetchCartItems(this.props.currentUser.id));
+                }
+            }, 100)
+        }
     }
 
     render(){

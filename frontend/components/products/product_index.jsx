@@ -64,12 +64,21 @@ class ProductIndex extends React.Component {
                     <li className={ category['shoes'] ? 'refinement-category-selected' : '' }> <Link to="/womens/shoes" onClick={ () => this.handleClick({ gender: "womens", category: "shoes" })}>Shoes</Link> </li>
                     <li className={ category['accessories'] ? 'refinement-category-selected' : '' }> <Link to="/womens/accessories" onClick={ () => this.handleClick({ gender: "womens", category: "accessories" })}>Accessories</Link> </li>
                     <li className={ category['brands'] ? 'refinement-category-selected' : '' }> <Link to="/womens/brands" onClick={ () => this.handleClick({ gender: "womens", category: "brands" })}>Labels We Love</Link> </li>
+                    <li>Many</li>
+                    <li>Other</li>
+                    <li>Things</li>
+                    <li>Here</li>
+                    <li>To</li>
+                    <li>Fill</li>
+                    <li>Up</li>
+                    <li>Space</li>
                 </ul>
             )
         }
     }
 
     render(){
+        window.scrollTo(0,0);
         return(
             <div className='product-index-container'>
                 {this.productHeader()}
@@ -97,6 +106,7 @@ class ProductIndex extends React.Component {
                                 ))
                             }
                         </ul>
+                        <div className='product-index-count'>{this.props.products.length}&nbsp;Results</div>
                     </div>
                 </div>
             </div>

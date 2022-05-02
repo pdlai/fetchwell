@@ -35,6 +35,9 @@
             justify-content: right;
         }
     }
+    div:last-child {
+        margin-bottom: 6px;
+    }
 }
 
 .refinement-bar {

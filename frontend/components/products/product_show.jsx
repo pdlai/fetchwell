@@ -1,6 +1,7 @@
 import React from 'react';
 import ReviewItem from '../reviews/review_item';
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
+import { AiOutlineRight } from 'react-icons/ai';
 
 class ProductShow extends React.Component {
     constructor(props){
@@ -81,40 +82,45 @@ class ProductShow extends React.Component {
         let product = this.props.product;
         let reviews = this.props.reviews;
         return(
-            <div>
-                <div className="product-show-item">
-                    <div>{ product.name }</div>
-                    <div>${ product.price.toFixed(2) }</div>
-                    <div>{ product.description }</div>
-                    <img src={ product.photoUrls[0] } />
-                    <img src={ product.photoUrls[1] } />
-                    <img src={ product.photoUrls[1] } className="reversed" />
+            <div className='product-show-container'>
+                <div className='product-show-category'><div>Womens</div>< AiOutlineRight /><div>{product.category}</div></div>
+                <div className='product-show-item'>
+                    <div className='product-show-item-images'>
+                        <img src={ product.photoUrls[0] } />
+                        <img src={ product.photoUrls[1] } />
+                        <img src={ product.photoUrls[0] } className="reversed-image" />
+                    </div>
+                    <div className='product-show-item-details'>
+                        <div>{ product.name }</div>
+                        <div>${ product.price.toFixed(2) }</div>
+                        <div>{ product.description }</div>
+                        {this.renderErrors()}
+
+                        <div>
+                            <label>XX Small
+                                <input onClick={this.update("size")} type="radio" name="size" value="XXS" />
+                            </label>
+                            <label>X Small
+                                <input onClick={this.update("size")} type="radio" name="size" value="XS" />
+                            </label>
+                            <label>Small
+                                <input onClick={this.update("size")} type="radio" name="size" value="S" />
+                            </label>
+                            <label>Medium
+                                <input onClick={this.update("size")} type="radio" name="size" value="M" />
+                            </label>
+                            <label>Large
+                                <input onClick={this.update("size")} type="radio" name="size" value="L" />
+                            </label>
+                            <label>X Large
+                                <input onClick={this.update("size")} type="radio" name="size" value="XL" />
+                            </label>
+                        </div>
+                        
+                        <button onClick={ this.handleAddToCart }>Add to Cart</button>
+                    </div>
                 </div>
 
-                {this.renderErrors()}
-
-                <div>
-                    <label>XX Small
-                        <input onClick={this.update("size")} type="radio" name="size" value="XXS" />
-                    </label>
-                    <label>X Small
-                        <input onClick={this.update("size")} type="radio" name="size" value="XS" />
-                    </label>
-                    <label>Small
-                        <input onClick={this.update("size")} type="radio" name="size" value="S" />
-                    </label>
-                    <label>Medium
-                        <input onClick={this.update("size")} type="radio" name="size" value="M" />
-                    </label>
-                    <label>Large
-                        <input onClick={this.update("size")} type="radio" name="size" value="L" />
-                    </label>
-                    <label>X Large
-                        <input onClick={this.update("size")} type="radio" name="size" value="XL" />
-                    </label>
-                </div>
-                
-                <button onClick={ this.handleAddToCart }>Add to Cart</button>
                 {this.renderCreateReview()}
                 <ul className="product-show-reviews">
                     {
