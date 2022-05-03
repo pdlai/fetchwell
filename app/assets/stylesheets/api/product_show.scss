@@ -37,11 +37,174 @@
         }
         .product-show-item-details {
             flex: 1;
-            max-width: 600px;
+            max-width: 500px;
         }
     }
 }
 
 .product-show-item-details {
     margin-left: 20px;
+    letter-spacing: 0.024em;
+    .product-show-item-rating > div {
+        margin-right: 5px;
+    }
+    .product-show-item-rating {
+        display: flex;
+        flex-direction: row;
+        font-size: 0.8em;
+        margin-bottom: 5px;
+        .product-show-item-rating-stars {
+            display: flex;
+            flex-direction: row;
+        }
+        #bracket-break {
+            display: inline-block;
+            color: grey;
+        }
+    }
+    .product-show-item-name {
+        font-size: 1.5em;
+        margin-bottom: 15px;
+    }
+    .product-show-item-price {
+        margin-bottom: 30px;
+        div:first-child {
+            font-family: 'ProbaPro-SemiBold';
+            font-size: 1.2em;
+            margin-bottom: 2px;
+        }
+        div:last-child {
+            font-family: 'ProbaPro-Light';
+        }
+        div{
+            display: flex;
+            align-items: center;
+            img {
+                display: inline-block;
+                background-color: #B2FCE4;
+                border-radius: 25px;
+                padding: 5px;
+            }
+        }
+    }
+    .product-show-item-size {
+        margin-bottom: 40px;
+        .product-show-item-size-header {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            div {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                letter-spacing: 0.05em;
+            }
+            .item-size-selected {
+                div:first-child {
+                    font-family: 'ProbaPro-Bold';
+                    text-transform: uppercase;
+                    font-size: 0.9em;
+                    margin-right: 8px;
+                }
+            }
+            .item-size-chart {
+                svg {
+                    margin-right: 4px;
+                }
+                div {
+                    text-decoration: underline;
+                    text-decoration-thickness: .1em;
+                    text-underline-offset: .1em;
+                }
+                div:hover {
+                    cursor: pointer;
+                }
+            }
+        }
+        .product-show-item-size-selector {
+            position: relative;
+            display: flex;
+            flex-wrap: wrap;
+            label {
+                outline: 1px solid black;
+                margin: 6px;
+                padding: 4px;
+            }
+            input {
+                position: absolute;
+                display: none;
+            }
+            input:checked + label{
+                outline: 3px solid black;
+                font-family: 'ProbaPro-SemiBold';
+            }
+        }
+    }
+    .product-show-item-delivery {
+        letter-spacing: 0.05em;
+        margin-bottom: 30px;
+        input[name="delivery"]{
+            accent-color: black;
+            margin-right: 10px;
+            transform: scale(1.3);
+        }
+        label {
+            display: flex;
+            flex-direction: row;
+        }
+        .delivery-shipping {
+            margin-bottom: 16px;
+        }
+        .delivery-shipping-zipcode {
+            display: flex;
+            flex-direction: row;
+            margin-bottom: 4px;
+            div:first-child {
+                font-family: 'ProbaPro-Bold';
+                text-transform: uppercase;
+                font-size: 0.9em;
+                letter-spacing: 0.08em;
+            }
+            div:last-child {
+                text-decoration: underline;
+                text-decoration-thickness: .1em;
+                text-underline-offset: .1em;
+            }
+            div:last-child:hover {
+                cursor: pointer;
+            }
+        }
+        .delivery-shipping-details {
+            div {
+                margin-bottom: 2px;
+                font-size: 0.9em;
+            }
+            div:last-child {
+                font-family: 'ProbaPro-Medium';
+                color: rgb(38, 85, 38);
+            }
+        }
+        .delivery-store {
+            font-family: 'ProbaPro-Bold';
+            text-transform: uppercase;
+            font-size: 0.9em;
+            letter-spacing: 0.08em;
+        }
+    }
+    #add-to-cart-button {
+        width: 100%;
+        height: 40px;
+        background-color: black;
+        border: none;
+        color: white;
+        font-family: "ProbaPro-SemiBold";
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        font-size: 0.8em;
+        border-radius: 3px;
+    }
+    #add-to-cart-button:hover {
+        cursor: pointer;
+    }
 }
