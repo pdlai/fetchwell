@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { AiOutlineRight } from 'react-icons/ai';
 import { IoStar, IoStarOutline } from 'react-icons/io5';
 import { CgRuler } from 'react-icons/cg';
+import { BsChevronUp, BsChevronDown } from 'react-icons/bs';
 
 class ProductShow extends React.Component {
     constructor(props){
@@ -11,7 +12,8 @@ class ProductShow extends React.Component {
         this.handleAddToCart = this.handleAddToCart.bind(this);
         this.state = {
             size: "",
-            quantity: 1
+            quantity: 1,
+            dropDown: true
         }
     }
 
@@ -75,13 +77,52 @@ class ProductShow extends React.Component {
             <div className='product-show-item-rating-stars'>
                 {[...Array(5)].map((foo, idx) => {
                     return (
-                        <div>
+                        <div key={idx}>
                             { idx < this.avgRating ? < IoStar size='14px' /> : < IoStarOutline size='14px' /> }
                         </div>
                     )
                 })}
             </div>
         )
+    }
+
+    dropDownIcon(){
+        if (this.state.dropDown){
+            return (
+                <div className='product-item-dropdown' onClick={() => this.setState({dropDown: false}) }>
+                    <div>Product Details</div>
+                    <BsChevronUp />
+                </div>
+            )
+        } else {
+            return (
+                <div className='product-item-dropdown' onClick={() => this.setState({dropDown: true}) }>
+                    <div>Product Details</div>
+                    <BsChevronDown />
+                </div>
+            )
+        }
+    }
+
+    dropDownMenu(){
+        if (this.state.dropDown){
+            return (
+                <div className='product-show-dropdown-menu'>
+                    <div>{ this.props.product.description }</div>
+                    <ul className='product-show-description-bullets'>
+                        <li>Do Well: For each pair made at the Fair Trade Certified™ factory, we contribute to a Community Development Fund managed by the workers.</li>
+                        <li>96% cotton/3% poly/1% spandex Heritage Stretch denim.</li>
+                        <li>Magic Pockets.</li>
+                        <li>Machine wash.</li>
+                        <li>Import.</li>
+                        <li>Fetchwell.com only.</li>
+                        <li>MD641</li>
+                    </ul>
+                </div>
+            )
+        } else {
+            return <div></div>;
+        }
     }
 
     renderErrors(){
@@ -108,9 +149,8 @@ class ProductShow extends React.Component {
                 <div className='product-show-category'><div>Womens</div>< AiOutlineRight /><div>{product.category}</div></div>
                 <div className='product-show-item'>
                     <div className='product-show-item-images'>
-                        <img src={ product.photoUrls[0] } />
-                        <img src={ product.photoUrls[1] } />
-                        <img src={ product.photoUrls[0] } className="reversed-image" />
+                        <div><img src={ product.photoUrls[0] } /><img src={ product.photoUrls[0] } className="reversed-image" /></div>
+                        <div><img src={ product.photoUrls[1] } /></div>
                     </div>
                     <div className='product-show-item-details'>
                         <div className='product-show-item-rating'>
@@ -136,27 +176,27 @@ class ProductShow extends React.Component {
                             </div>
                             <div className='product-show-item-size-selector'>
                                 <input id='radio-size-XXS'onClick={this.update("size")} type="radio" name="size" value="XXS" />
-                                <label for='radio-size-XXS'>XX&nbsp;Small</label>
+                                <label htmlFor='radio-size-XXS'>XX&nbsp;Small</label>
                             
                                 <input id='radio-size-XS'onClick={this.update("size")} type="radio" name="size" value="XS" />
-                                <label for='radio-size-XS'>X&nbsp;Small</label>
+                                <label htmlFor='radio-size-XS'>X&nbsp;Small</label>
                             
                                 <input id='radio-size-S'onClick={this.update("size")} type="radio" name="size" value="S" />
-                                <label for='radio-size-S'>Small</label>
+                                <label htmlFor='radio-size-S'>Small</label>
                             
                                 <input id='radio-size-M'onClick={this.update("size")} type="radio" name="size" value="M" />
-                                <label for='radio-size-M'>Medium</label>
+                                <label htmlFor='radio-size-M'>Medium</label>
                             
                                 <input id='radio-size-L'onClick={this.update("size")} type="radio" name="size" value="L" />
-                                <label for='radio-size-L'>Large</label>
+                                <label htmlFor='radio-size-L'>Large</label>
                             
                                 <input id='radio-size-XL'onClick={this.update("size")} type="radio" name="size" value="XL" />
-                                <label for='radio-size-XL'>X&nbsp;Large</label>
+                                <label htmlFor='radio-size-XL'>X&nbsp;Large</label>
                             </div>
                         </div>
                         <div className='product-show-item-delivery'>
-                            <label className='delivery-shipping'>
-                                <input type="radio" name="delivery" checked/>
+                            <span className='delivery-shipping'>
+                                <input type="radio" name="delivery" defaultChecked/>
                                 <div className='delivery-shipping-info'>
                                     <div className='delivery-shipping-zipcode'>
                                             <div>Delivery</div>
@@ -168,28 +208,39 @@ class ProductShow extends React.Component {
                                         <div>Order by 9PM PDT to get it by {today[0]}, {today[1]} {today[2]}</div>
                                     </div>
                                 </div>
-                            </label>
+                            </span>
                             <label className='delivery-store'>
                                 <input type="radio" name="delivery" />
                                 In-Store Availability & Pick Up
                             </label>
                         </div>
-                        
                         <button id='add-to-cart-button' onClick={ this.handleAddToCart }>Add to Bag</button>
-                        <div>{ product.description }</div>
+                        <div className='product-show-item-description'>
+                            {this.dropDownIcon()}
+                            {this.dropDownMenu()}
+                        </div>
+                        <div className='product-show-insider-menu'>
+                            <img src='./fetchwell-small-logo.png' />
+                            <div>Free shipping and more—it's a great time to be an Insider (!).</div>
+                        </div>
                     </div>
                 </div>
-
-                {this.renderCreateReview()}
-                <ul className="product-show-reviews">
-                    {
-                        reviews.map(review => (
-                            <ReviewItem
-                                review={review}
-                                key={review.id} />
-                        ))
-                    }
-                </ul>
+                <div className='product-reviews'>
+                    <div className='product-reviews-title'>Ratings & Reviews</div>
+                    <div className='product-rating-stats'>
+                        
+                    </div>
+                    {this.renderCreateReview()}
+                    <ul className="product-show-reviews">
+                        {
+                            reviews.map(review => (
+                                <ReviewItem
+                                    review={review}
+                                    key={review.id} />
+                            ))
+                        }
+                    </ul>
+                </div>
             </div>
         )
     }

@@ -37,6 +37,11 @@
     }
 }
 
-.testing {
-    color: red;
+.product-reviews {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .product-reviews-title {
+        font-family: 'ProbaPro-Bold';
+    }
 }
