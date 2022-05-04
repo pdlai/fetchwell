@@ -4,6 +4,7 @@ import { searchProduct } from '../../actions/product_actions';
 import { fetchReviews } from '../../actions/review_actions';
 import { openModal } from '../../actions/modal_actions';
 import { addCartItem, editCartItem } from '../../actions/cart_actions';
+import { updateFilters } from "../../actions/filter_actions";
 
 const mapStateToProps = (state, ownProps) => {
     return {
@@ -22,6 +23,7 @@ const mapDispatchToProps = (dispatch) => {
         openModal: modal => dispatch(openModal(modal)),
         addCartItem: cartItem => dispatch(addCartItem(cartItem)),
         editCartItem: cartItem => dispatch(editCartItem(cartItem)),
+        updateFilters: (filters) => dispatch(updateFilters(filters)),
     }
 }
 

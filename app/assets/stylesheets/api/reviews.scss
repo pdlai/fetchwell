@@ -41,7 +41,209 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: 50px;
     .product-reviews-title {
         font-family: 'ProbaPro-Bold';
+        font-size: 1.8em;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        margin-bottom: 28px;
+    }
+    input {
+        width: 100%;
+        -webkit-appearance: none;
+    }
+    input::-webkit-slider-thumb {
+        -webkit-appearance: none;
+    }
+    .product-rating-stats > div {
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+    .product-rating-stats {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        padding-top: 30px;
+        padding-bottom: 30px;
+        background-color: whitesmoke;
+        justify-content: space-between;
+        .rating-subtitle {
+            font-family: 'ProbaPro-Bold';
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+        .product-rating-stats-sub1 {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            .rating-subtitle {
+                font-size: 1.1em;
+                margin-bottom: 4px;
+            }
+            .product-show-item-rating-stars {
+                display: flex;
+                flex-direction: row;
+                margin-bottom: 6px;
+                div {
+                    margin-right: 3px;
+                }
+                svg {
+                    transform: scale(2);
+                    margin: 8px;
+                }
+            }
+            button {
+                font-family: 'ProbaPro-Regular';
+                background: none;
+                font-size: 1em;
+                border: none;
+                text-decoration: underline;
+                text-decoration-thickness: 0.1em;
+                text-underline-offset: 0.1em;
+                padding: 2px;
+            }
+            button:hover {
+                cursor: pointer;
+            }
+        }
+        .product-rating-stats-sub2 {
+            flex: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            .rating-subtitle {
+                font-size: 1.2em;
+            }
+            input[type='range'] {
+                background-color: grey;
+                height: 2px;
+                margin-top: 20px;
+                margin-bottom: 16px;
+            }
+            input[type='range']::-webkit-slider-thumb {
+                height: 18px;
+                width: 18px;
+                border-radius: 26px;
+                background-color: black;
+                border: 1px solid black;
+            }
+            .stats-sub2-fit-names {
+                width: 100%;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+            }
+        }
+        .product-rating-stats-sub3 {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            input[type='range'] {
+                background-color: grey;
+                max-height: 6px;
+                min-height: 6px;
+                overflow: hidden;
+                margin-top: 6px;
+                margin-bottom: 15px;
+            }
+            input[type='range']::-webkit-slider-runnable-track {
+                -webkit-appearance: none;
+                color: #13bba4;
+            }
+            input[type='range']::-webkit-slider-thumb {
+                height: 10px;
+                width: 1px;
+                // border-radius: 10px;
+                -webkit-appearance: none;
+                color: yellow;
+                background-color: black;
+                border: 1px solid black;
+                box-shadow: -400px 0 0 400px black;
+            }
+            span {
+                width: 100%;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                .rating-subtitle {
+                    font-size: 0.9em;
+                }
+            }
+        }
+    }
+    .product-show-reviews {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        margin-bottom: 30px;
+        margin-top: 30px;
+        li:first-child {
+            border-top: 1px solid black;
+        }
+    }
+}
+
+.product-show-review-item {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid black;
+    display: flex;
+    flex-direction: row;
+    font-size: 0.9em;
+    letter-spacing: 0.02em;
+    .review-item-user-info {
+        background-color: whitesmoke;
+        max-width: 280px;
+        min-width: 232px;
+        padding: 20px;
+        .user-info-subtitle {
+            font-family: 'ProbaPro-Bold';
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 2px;
+        }
+        .user-info-location {
+            display: inline-block;
+            padding-bottom: 15px;
+            margin-bottom: 10px;
+            border-bottom: 1px solid black;
+        }
+        input[type='range'] {
+            background-color: rgb(194, 194, 194);
+            height: 2px;
+            margin-top: 22px;
+            margin-bottom: 16px;
+        }
+        input[type='range']::-webkit-slider-thumb {
+            height: 8px;
+            width: 8px;
+            border-radius: 26px;
+            background-color: black;
+            border: 1px solid black;
+        }
+        .review-item-fit-names {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+    }
+    .review-item-user-review {
+        padding: 25px;
+        padding-right: 50px;
+        .review-item-rating-stars {
+            display: flex;
+            flex-direction: row;
+            div{
+                margin-right: 4px;
+            }
+        }
+        .review-item-summary {
+            font-family: 'ProbaPro-Bold';
+        }
     }
 }

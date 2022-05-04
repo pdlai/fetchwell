@@ -26,14 +26,18 @@ class ProductShow extends React.Component {
         if (this.props.currentUser){
             return(
                 <Link to={`${this.props.location.pathname}/reviews/new`}>
-                    <button>Create Review</button>
+                    <button>Write a Review</button>
                 </Link>
             )
         } else {
             return(
-                <button onClick={() => this.props.openModal('login')}>Create Review</button>
+                <button onClick={() => this.props.openModal('login')}>Write a Review</button>
             )
         }
+    }
+
+    handleShopNow(filters){
+        this.props.updateFilters(filters);
     }
 
     handleAddToCart(){
@@ -72,7 +76,8 @@ class ProductShow extends React.Component {
         this.props.reviews.forEach(review => {
             sum += review.rating;
         });
-        this.avgRating = Math.round(sum / this.props.reviews.length);
+        if (isNaN(sum)) return;
+        this.avgRating = Math.floor(sum / this.props.reviews.length);
         return (
             <div className='product-show-item-rating-stars'>
                 {[...Array(5)].map((foo, idx) => {
@@ -82,6 +87,64 @@ class ProductShow extends React.Component {
                         </div>
                     )
                 })}
+            </div>
+        )
+    }
+
+    renderRatingScore(){
+        let sum = 0;
+        this.props.reviews.forEach(review => {
+            sum += review.rating;
+        });
+        let avg = sum / this.props.reviews.length;
+        if (isNaN(avg)) return;
+        return (
+            <div className='rating-subtitle'>{avg.toFixed(1)} out of 5</div>
+        )
+    }
+
+    renderRatingFit(){
+        let sum = 0;
+        this.props.reviews.forEach(review => {
+            sum += review.overall_fit;
+        });
+        let avg = Math.round(sum / this.props.reviews.length);
+        if (isNaN(avg)) return;
+        return (
+            <div className='product-rating-stats-sub2'>
+                <div className='rating-subtitle'>Overall Fit</div>
+                <input type='range' min='1' max='100' value={avg} disabled />
+                <div className='stats-sub2-fit-names'>
+                    <div>Small</div>
+                    <div>True to Size</div>
+                    <div>Big</div>
+                </div>
+            </div>
+        )
+    }
+
+    // just for show
+    renderRatingSpecs(){
+        let sum = 0;
+        this.props.reviews.forEach(review => {
+            sum += review.rating;
+        });
+        let avg = sum / this.props.reviews.length;
+        if (isNaN(avg)) return;
+        let quality = avg + 0.2;
+        let style = avg + 0.7;
+        let value = avg - 0.3;
+        if (quality > 5) quality = 5;
+        if (style > 5) style = 5;
+        if (value > 5) value = 5;
+        return (
+            <div className='product-rating-stats-sub3'>
+                <span><div className='rating-subtitle'>Quality</div><div>{quality.toFixed(1)}&nbsp;/&nbsp;5</div></span>
+                <input type='range' min='1' max='5' step='0.05' value={quality} disabled />
+                <span><div className='rating-subtitle'>Style</div><div>{style.toFixed(1)}&nbsp;/&nbsp;5</div></span>
+                <input type='range' min='1' max='5' step='0.05' value={style} disabled />
+                <span><div className='rating-subtitle'>Value</div><div>{value.toFixed(1)}&nbsp;/&nbsp;5</div></span>
+                <input type='range' min='1' max='5' step='0.05' value={value} disabled />
             </div>
         )
     }
@@ -139,7 +202,7 @@ class ProductShow extends React.Component {
     }
 
     render(){
-        if(!this.props.product) return null;
+        if(!this.props.product || !this.props.reviews) return null;
         let date = new Date();
         let today = date.toDateString().split(" ");
         let product = this.props.product;
@@ -149,8 +212,8 @@ class ProductShow extends React.Component {
                 <div className='product-show-category'><div>Womens</div>< AiOutlineRight /><div>{product.category}</div></div>
                 <div className='product-show-item'>
                     <div className='product-show-item-images'>
-                        <div><img src={ product.photoUrls[0] } /><img src={ product.photoUrls[0] } className="reversed-image" /></div>
-                        <div><img src={ product.photoUrls[1] } /></div>
+                        <div><img src={ product.photoUrls[0] } /><img src={ product.photoUrls[1] } /></div>
+                        <div><img src={ product.photoUrls[0] } className="reversed-image" /></div>
                     </div>
                     <div className='product-show-item-details'>
                         <div className='product-show-item-rating'>
@@ -228,9 +291,15 @@ class ProductShow extends React.Component {
                 <div className='product-reviews'>
                     <div className='product-reviews-title'>Ratings & Reviews</div>
                     <div className='product-rating-stats'>
-                        
+                        <div className='product-rating-stats-sub1'>
+                            {this.renderRatingScore()}
+                            {this.renderStars()}
+                            <div>{reviews.length} Reviews | {this.renderCreateReview()}</div>
+                        </div>
+                        {this.renderRatingFit()}
+                        {this.renderRatingSpecs()}
                     </div>
-                    {this.renderCreateReview()}
+                    
                     <ul className="product-show-reviews">
                         {
                             reviews.map(review => (
@@ -240,6 +309,41 @@ class ProductShow extends React.Component {
                             ))
                         }
                     </ul>
+                </div>
+                <div className='style-it-with-container'>
+                    <div className='style-it-with-title'>Style It With</div>
+                    <div className='style-it-with-items'>
+                        <div>
+                            <span>
+                                <Link className="" to="/womens/new" onClick={ () => this.handleShopNow({ gender: "womens", category: "new" })}>
+                                    <img src='./product_style_1.png' />
+                                </Link>
+                                <Link className="" to="/womens/new" onClick={ () => this.handleShopNow({ gender: "womens", category: "new" })}>
+                                    <button>Shop&nbsp;The&nbsp;Look</button>
+                                </Link>
+                            </span>
+                        </div>
+                        <div>
+                            <span>
+                                <Link className="" to="/womens/new" onClick={ () => this.handleShopNow({ gender: "womens", category: "new" })}>
+                                    <img src='./product_style_4.png' />
+                                </Link>
+                                <Link className="" to="/womens/new" onClick={ () => this.handleShopNow({ gender: "womens", category: "new" })}>
+                                    <button>Shop&nbsp;The&nbsp;Look</button>
+                                </Link>
+                            </span>
+                        </div>
+                        <div>
+                            <span>
+                                <Link className="" to="/womens/new" onClick={ () => this.handleShopNow({ gender: "womens", category: "new" })}>
+                                    <img src='./product_style_3.png' />
+                                </Link>
+                                <Link className="" to="/womens/new" onClick={ () => this.handleShopNow({ gender: "womens", category: "new" })}>
+                                    <button>Shop&nbsp;The&nbsp;Look</button>
+                                </Link>
+                            </span>
+                        </div>
+                    </div>
                 </div>
             </div>
         )
