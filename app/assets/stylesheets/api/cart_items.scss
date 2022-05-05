@@ -37,6 +37,11 @@
         overflow-x: hidden;
         margin-left: 15px;
         max-height: 65%;
+        .empty-cart {
+            padding: 20px;
+            text-align: center;
+            margin-right: 15px;
+        }
     }
     .cart-items-index-list {
         padding: 0;
@@ -194,9 +199,13 @@
         flex-direction: row;
         justify-content: space-between;
     }
+    a {
+        margin-top: 15px;
+        width: 100%;
+    }
     button {
         height: 40px;
-        margin-top: 15px;
+        width: 100%;
         background-color: black;
         border: none;
         color: white;

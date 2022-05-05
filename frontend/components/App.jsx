@@ -1,11 +1,11 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
 import ProductIndexContainer from "./products/product_index_container";
 import ProductShowContainer from "./products/product_show_container";
 import NavBarContainer from "./nav_bar/nav_bar_container"
 import ReviewFormContainer from "./reviews/review_form_container"
 import SplashContainer from "./splash/splash_container";
+import CheckOutPage from "./greeting/checkout";
 import Footer from "./splash/footer";
 import Modal from "./modal/modal";
 
@@ -29,6 +29,7 @@ class App extends React.Component {
                     <Route path="/womens/" component={ProductIndexContainer} />
                     <ProtectedRoute path='/products/:id/reviews/new' component={ReviewFormContainer} />
                     <Route path="/products/:id" component={ProductShowContainer} />
+                    <Route path="/checkout" component={CheckOutPage} />
                     <Route path="/" component={SplashContainer} />
                     <Redirect to="/" />
                 </Switch>

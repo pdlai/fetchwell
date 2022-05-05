@@ -2,6 +2,7 @@ import React from 'react';
 import CartItemsIndexItem from './cart_items_index_item';
 import { withRouter } from 'react-router-dom';
 import { BsChevronDown, BsChevronUp } from 'react-icons/bs';
+import { Link } from 'react-router-dom';
 
 class CartItemsIndex extends React.Component {
     constructor(props){
@@ -81,7 +82,7 @@ class CartItemsIndex extends React.Component {
     render(){
         let emptyDescription;
         if(!this.props.cartItems.length){
-            emptyDescription = <div>Your Cart is empty.</div>
+            emptyDescription = <div className='empty-cart'>Your Cart is empty.</div>
         } else {
             emptyDescription = <div></div>
         }
@@ -113,7 +114,9 @@ class CartItemsIndex extends React.Component {
                         <div>Order Subtotal:</div>
                         <div>${this.totalCost()}</div>
                     </div>
-                    <button>Continue to Checkout</button>
+                    <Link to={`/checkout`}>
+                        <button>Continue to Checkout</button>
+                    </Link>
                 </div>
             </div>
         )
