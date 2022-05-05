@@ -92,7 +92,7 @@ class SessionForm extends React.Component {
                 </label>
             </div>
             signInOptions = <div></div>
-            submitButton = <input id="signup-submit-button" type="submit" value="Sign Up Now" />
+            submitButton = <button id="signup-submit-button" type="submit">Sign Up Now</button>
             demoButton= <div></div>
             legalStuff = <div id="signup-legal-stuff">By clicking "Sign Up Now," you agree to a bunch of&nbsp;
                 <div>terms and conditions</div> that allow us to sell your information, you
@@ -109,7 +109,7 @@ class SessionForm extends React.Component {
                 <div><input type="checkbox"/>Remember me</div>
                 <div>Forgot password?</div>
             </div>
-            submitButton = <input id="session-submit-button" type="submit" value="Let's Go"/>
+            submitButton = <button id="session-submit-button" type="submit" >Let's Go</button>
             demoButton= <button id="session-demo-button" onClick={this.handleDemoUser}>Demo User</button>
             legalStuff = <div></div>
             otherForm = <div className='other-form-container'>

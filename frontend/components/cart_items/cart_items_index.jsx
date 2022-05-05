@@ -33,7 +33,7 @@ class CartItemsIndex extends React.Component {
             return (
                 <div className='dropdown-menu'>
                     <input type="text" value={this.state.promoCode} onChange={this.update('promoCode')}/>
-                    <button type="submit" onClick={this.handlePromoSubmit}>Apply</button>
+                    <button onClick={this.handlePromoSubmit}>Apply</button>
                 </div>
             )
         } else {

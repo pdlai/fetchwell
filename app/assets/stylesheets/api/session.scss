@@ -93,9 +93,9 @@
             background-color: black;
             border: none;
             color: white;
-            font-family: "ProbaPro-SemiBold";
+            font-family: "ProbaPro-Bold";
             text-transform: uppercase;
-            letter-spacing: 0.08em;
+            letter-spacing: 0.1em;
             font-size: 0.8em;
         }
         #signup-submit-button {
@@ -127,6 +127,7 @@
             letter-spacing: 0.08em;
             border-top: 1px solid black;
             button {
+                color: black;
                 background: none;
                 font-size: 1em;
                 border: none;

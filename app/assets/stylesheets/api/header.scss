@@ -98,6 +98,9 @@
         flex-direction: row;
         padding-bottom: 5px;
         padding-top: 5px;
+        svg {
+            color: black;
+        }
         svg:first-child:hover {
             cursor: pointer;
         }
@@ -116,6 +119,7 @@
             border: none;
             display: flex;
             align-items: center;
+            color: black;
         }
         .login-header, .login-signup {
             display: flex;
@@ -124,6 +128,7 @@
             button {
                 padding: 4px;
                 max-height: 2vh;
+                color: black;
             }
             div {
                 max-height: 1.25vh;
