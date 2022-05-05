@@ -8,6 +8,7 @@ class CheckOutPage extends React.Component {
     }
 
     render(){
+        window.scrollTo(0,0);
         return (
             <div className='checkout-page'>
                 <div className='order-placed-message'>Your order has been placed!</div>

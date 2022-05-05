@@ -95,6 +95,7 @@ class ReviewForm extends React.Component {
     }
 
     render(){
+        window.scrollTo(0,0);
         let productName;
         if( this.props.product ) productName = this.props.product.name;
 

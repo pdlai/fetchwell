@@ -202,6 +202,7 @@ class ProductShow extends React.Component {
     }
 
     render(){
+        window.scrollTo(0,0);
         if(!this.props.product || !this.props.reviews) return null;
         let date = new Date();
         let today = date.toDateString().split(" ");
