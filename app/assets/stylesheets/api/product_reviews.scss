@@ -11,32 +11,6 @@
 //     text-transform: lowercase;
 // }
 
-.review-form-error-list {
-    color: red;
-}
-
-.review-form {
-    input[type="radio"][name="rating"] {
-        opacity: 0;
-        position: fixed;
-        width: 0;
-    }
-    .star {
-        font-size: 30px;
-        color: black;
-        &:hover {
-            cursor: pointer;
-        };
-    }
-    .review-form-error-title {
-        color: red;
-    }
-
-    .review-form-error-box {
-        border: 1px solid red;
-    }
-}
-
 .product-reviews {
     display: flex;
     flex-direction: column;

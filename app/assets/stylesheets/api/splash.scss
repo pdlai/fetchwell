@@ -6,15 +6,18 @@
     a:hover { text-decoration: none; }
     a:active { text-decoration: none; }
 
-    * {
-        max-width: 1440px;
-        width: 100%;
-    }
+    max-width: 1440px;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     text-align: center;
+    margin: auto;
+    * {
+        max-width: 1440px;
+        width: 100%;
+    }
 }
 
 .splash-section1 {
@@ -70,18 +73,25 @@
     .splash-section2-sub1 {
         img {
             float: left;
+            margin-bottom: 2%;
+        }
+    }
+    .splash-section2-sub2 {
+        img {
+            margin-top: 2%;
         }
     }
     .splash-section2-sub3 {
         img {
             float: right;
+            margin-bottom: 2%;
         }
     }
 }
 
 .splash-section2 > div {
     list-style: none;
-    flex: 0 0 33.33333%;
+    flex: 1;
     img {
         width: 96%;
     }
@@ -89,6 +99,7 @@
         font-family: "ProbaPro-Bold";
         text-transform: uppercase;
         letter-spacing: 0.05em;
+        font-size: 1.1em;
     }
     div:first-of-type {
         text-transform: none;

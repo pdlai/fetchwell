@@ -72,6 +72,8 @@ class ProductIndex extends React.Component {
                     <li>Fill</li>
                     <li>Up</li>
                     <li>Space</li>
+                    <li>Looks</li>
+                    <li>Better</li>
                 </ul>
             )
         }

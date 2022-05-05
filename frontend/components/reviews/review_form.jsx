@@ -101,124 +101,124 @@ class ReviewForm extends React.Component {
         let errors = this.filterErrors();
 
         return(
-            <div>
-                <div>Write Your Review</div>
-                <div>{ productName }</div>
+            <div className='review-form-container'>
+                <div className='review-form-title'>Write Your Review</div>
+                <div className='review-form-product'>{ productName }</div>
 
                 {this.renderErrors()}
 
                 <form className="review-form" onSubmit={this.handleSubmit}>
 
                     <div className="review-form-section">
-                        Your Product Rating
-                        <div className="review-form-subsection">
-                            <div>
-                                <div className={(errors['Rating'] ? 'review-form-error-title' : '')}>Overall Rating</div>
-                                <div>
-                                    {
-                                        [...Array(5)].map((foo, idx) => {
-                                            const ratingValue = idx + 1
-                                            return (
-                                                <label key={idx}>
-                                                    <input
-                                                        type="radio"
-                                                        name="rating"
-                                                        value={ratingValue}
-                                                        onClick={this.update('rating')}
-                                                    />
-                                                    {ratingValue <= (this.state.hover || this.state.rating) ?
-                                                        <IoStar className='star' onMouseEnter={() => this.setState({ hover: ratingValue })} onMouseLeave={() =>this.setState({ hover: 0 })} />
-                                                        : <IoStarOutline className='star' onMouseEnter={() => this.setState({ hover: ratingValue })} onMouseLeave={() => this.setState({ hover: 0 })} />}
-                                                </label>
-                                            );
-                                        })
-                                    }
-                                    { this.renderRatingLengend() }
-                                </div>
-                            </div>    
-                            <div>
-                                <div className={errors['Overall'] ? 'review-form-error-title' : ''}>Overall Fit</div>
-                                <div>
-                                    <label>Runs Small
-                                        <input type="radio" name="overall-fit" value="15" onClick={this.update('overall_fit')}/>
-                                    </label>
-                                    <label>Slightly Small
-                                        <input type="radio" name="overall-fit" value="35" onClick={this.update('overall_fit')}/>
-                                    </label>
-                                    <label>True to Size
-                                        <input type="radio" name="overall-fit" value="50" onClick={this.update('overall_fit')}/>
-                                    </label>
-                                    <label>Slightly Large
-                                        <input type="radio" name="overall-fit" value="65" onClick={this.update('overall_fit')}/>
-                                    </label>
-                                    <label>Runs Large
-                                        <input type="radio" name="overall-fit" value="85" onClick={this.update('overall_fit')}/>
-                                    </label>
-                                </div>
-                            </div>                   
-                            <div>
-                                Do You Recommend this Product?
-                                <div>
-                                    <label>Yes
-                                        <input type="radio" name="recommend" value="true" onChange={this.update('recommend')} checked={this.state.recommend === "true"} />
-                                    </label>
-                                    <label>No
-                                        <input type="radio" name="recommend" value="false" onChange={this.update('recommend')} checked={this.state.recommend === "false"} />
-                                    </label>
-                                </div>
+                        <div className='review-form-section-title'>Your Product Rating<div className='review-form-required-text'><div>*</div>Required</div></div>
+                        <div className='review-form-subsection'>
+                            <div className={(errors['Rating'] ? 'review-form-error-title' : '')}>Overall Rating<div className='review-form-required'>*</div></div>
+                            <div className='review-form-stars'>
+                                {
+                                    [...Array(5)].map((foo, idx) => {
+                                        const ratingValue = idx + 1
+                                        return (
+                                            <label key={idx}>
+                                                <input
+                                                    type="radio"
+                                                    name="rating"
+                                                    value={ratingValue}
+                                                    onClick={this.update('rating')}
+                                                />
+                                                {ratingValue <= (this.state.hover || this.state.rating) ?
+                                                    <IoStar className='star' onMouseEnter={() => this.setState({ hover: ratingValue })} onMouseLeave={() =>this.setState({ hover: 0 })} />
+                                                    : <IoStarOutline className='star' onMouseEnter={() => this.setState({ hover: ratingValue })} onMouseLeave={() => this.setState({ hover: 0 })} />}
+                                            </label>
+                                        );
+                                    })
+                                }
+                                <div>{ this.renderRatingLengend() }</div>
+                            </div>
+                        </div>
+                        <div className='review-form-subsection'>
+                            <div className={errors['Overall'] ? 'review-form-error-title' : ''}>Overall Fit<div className='review-form-required'>*</div></div>
+                            <span className='review-form-fit-radio'>
+                                <label>
+                                    <input type="radio" name="overall-fit" value="15" onClick={this.update('overall_fit')}/>
+                                    <span>Runs</span>
+                                    <span>Small</span>
+                                </label>
+                                <label>
+                                    <input type="radio" name="overall-fit" value="35" onClick={this.update('overall_fit')}/>
+                                    <span>Slightly</span>
+                                    <span>Small</span>
+                                </label>
+                                <label>
+                                    <input type="radio" name="overall-fit" value="50" onClick={this.update('overall_fit')}/>
+                                    <span>True to</span>
+                                    <span>Size</span>
+                                </label>
+                                <label>
+                                    <input type="radio" name="overall-fit" value="65" onClick={this.update('overall_fit')}/>
+                                    <span>Slightly</span>
+                                    <span>Large</span>
+                                </label>
+                                <label>
+                                    <input type="radio" name="overall-fit" value="85" onClick={this.update('overall_fit')}/>
+                                    <span>Runs</span>
+                                    <span>Large</span>
+                                </label>
+                            </span>
+                        </div>                   
+                        <div className='review-form-subsection'>
+                            <div>Do You Recommend this Product?</div>
+                            <div className='review-form-recommend'>
+                                <input id='review-form-recommend-yes' type="radio" name="recommend" value="true" onChange={this.update('recommend')} checked={this.state.recommend === "true"} />
+                                <label htmlFor='review-form-recommend-yes'>Yes</label>
+                                <input id='review-form-recommend-no' type="radio" name="recommend" value="false" onChange={this.update('recommend')} checked={this.state.recommend === "false"} />
+                                <label htmlFor='review-form-recommend-no'>No</label>
                             </div>
                         </div>
                     </div>
 
                     <div className="review-form-section">
-                        Your Review
-                        <div className="review-form-subsection">
-                            <div>
-                                <label className={errors['Summary'] ? 'review-form-error-title' : ''}>Review Summary
-                                    <input type="text" value={this.state.summary} onChange={this.update('summary')} className={errors['Summary'] ? 'review-form-error-box' : ''} />
-                                </label>
-                                <div className="review-form-guidance">
-                                    Example: Has great features
-                                </div>
-                            </div>
-                            <div>
-                                <label className={errors['Description'] ? 'review-form-error-title' : ''}>Your Review
-                                    <textarea rows="5" cols="40" value={this.state.description} onChange={this.update('description')} className={errors['Description'] ? 'review-form-error-box' : ''} />
-                                </label>
-                                <div className="review-form-guidance">
-                                    Please limit this field to no more than 1,000 characters.
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="review-form-section">
-                        Your Information
-
-                        <div className="review-form-subsection">
-                            <div>
-                                <label className={errors['Nickname'] ? 'review-form-error-title' : ''}>Choose a Nickname
-                                    <input type="text" value={this.state.nickname} onChange={this.update('nickname')} className={errors['Nickname'] ? 'review-form-error-box' : ''}/>
-                                </label>
-                                <div className="review-form-guidance">
-                                    Example: Jackie27. For privacy reasons, do not use your full name or email address.
-                                </div>
-                            </div>
-                            <div>
-                                <label className={errors['Location'] ? 'review-form-error-title' : ''}>Your Location
-                                    <input type="text" value={this.state.location} onChange={this.update('location')} className={errors['Location'] ? 'review-form-error-box' : ''} />
-                                </label>
-                            </div>
+                        <div className='review-form-section-title'>Your Review</div>
+                        <div className='review-form-subsection review-form-text'>
+                            <label id='review-form-summary' className={errors['Summary'] ? 'review-form-error-title' : ''}>Review Summary<div className='review-form-required'>*</div></label>
+                            <input id='review-form-summary' type="text" value={this.state.summary} onChange={this.update('summary')} className={errors['Summary'] ? 'review-form-error-box' : ''} />
                             <div className="review-form-guidance">
-                                <input type="checkbox" value="foo" />
-                                Alert me when my review is published or if the Madewell team comments on my review.
+                                Example: Has great features
+                            </div>
+                        </div>
+                        <div className='review-form-subsection review-form-text'>
+                            <label id='review-form-description' className={errors['Description'] ? 'review-form-error-title' : ''}>Your Review<div className='review-form-required'>*</div></label>
+                            <textarea htmlFor='review-form-description' rows='9' value={this.state.description} onChange={this.update('description')} className={errors['Description'] ? 'review-form-error-box' : ''} />
+                            <div className="review-form-guidance">
+                                Please limit this field to no more than 1,000 characters.
                             </div>
                         </div>
                     </div>
 
-                    <input type="submit" value="Submit" />
+                    <div className="review-form-section">
+                        <div className='review-form-section-title'>Your Information</div>
+                        <div className='review-form-subsection review-form-text'>
+                            <label id='review-form-nickname' className={errors['Nickname'] ? 'review-form-error-title' : ''}>Choose a Nickname<div className='review-form-required'>*</div></label>
+                            <input htmlFor='review-form-nickname' type="text" value={this.state.nickname} onChange={this.update('nickname')} className={errors['Nickname'] ? 'review-form-error-box' : ''}/>
+                            <div className="review-form-guidance">
+                                Example: Jackie27. For privacy reasons, do not use your full name or email address.
+                            </div>
+                        </div>
+                        <div className='review-form-subsection review-form-text'>
+                            <label id='review-form-location' className={errors['Location'] ? 'review-form-error-title' : ''}>Your Location<div className='review-form-required'>*</div></label>
+                            <input htmlFor='review-form-location' type="text" value={this.state.location} onChange={this.update('location')} className={errors['Location'] ? 'review-form-error-box' : ''} />
+                            <div className="review-form-guidance">
+                                Example: New York, NY
+                            </div>
+                        </div>
+                        <div className="review-form-guidance">
+                            <input type="checkbox" value="foo" />
+                            Alert me when my review is published or if the Madewell team comments on my review.
+                        </div>
+                    </div>
+
+                    <button className='review-form-submit-button' type='submit'>Submit</button>
                     <Link to={`/products/${this.props.match.params.id}`}>
-                        <button>Cancel</button>
+                        <button className='review-form-cancel-button' >Cancel</button>
                     </Link>
 
                 </form>

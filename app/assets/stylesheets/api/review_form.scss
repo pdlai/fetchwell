@@ -1,0 +1,197 @@
+
+.review-form-container {
+    min-width: 600px;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+    margin-top: 60px;
+}
+
+.review-form-title {
+    font-family: 'ProbaPro-Bold';
+    font-size: 2em;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 26px;
+}
+
+.review-form-product {
+    font-family: 'ProbaPro-Bold';
+    letter-spacing: 0.04em;
+    margin-bottom: 50px;
+}
+
+.review-form-error-list {
+    color: red;
+}
+
+.review-form {
+    input[type="radio"][name="rating"] {
+        opacity: 0;
+        position: fixed;
+        width: 0;
+    }
+    .star {
+        font-size: 30px;
+        color: black;
+        &:hover {
+            cursor: pointer;
+        };
+    }
+    .review-form-error-title {
+        color: red;
+    }
+
+    input[type='text'].review-form-error-box, textarea.review-form-error-box{
+        border: 1px solid red;
+    }
+
+    * {
+        font-family: 'ProbaPro-Bold';
+        text-transform: uppercase;
+    }
+    .review-form-required {
+        color: red;
+        font-size: 1.4em;
+        display: inline-block;
+    }
+    .review-form-section-title {
+        font-size: 1.2em;
+        letter-spacing: 0.1em;
+        padding-bottom: 6px;
+        margin-top: 10px;
+        margin-bottom: 4px;
+        border-bottom: 1px solid black;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        .review-form-required-text {
+            color: red;
+            font-size: 0.8em;
+            display: inline-block;
+            text-transform: capitalize;
+            font-family: 'ProbaPro-Regular';
+            letter-spacing: 0.02em;
+            div {
+                font-size: 1.4em;
+                display: inline-block;
+            }
+        }
+    }
+    .review-form-subsection {
+        letter-spacing: 0.08em;
+        font-size: 0.9em;
+        margin-bottom: 8px;
+        div {
+            margin: 6px;
+        }
+    }
+    .review-form-guidance {
+        text-transform: none;
+        letter-spacing: 0.03em;
+        font-family: 'ProbaPro-Regular';
+        input[type='checkbox'] {
+            accent-color: black;
+        }
+    }
+    .review-form-stars {
+        display: flex;
+        align-items: center;
+        svg {
+            padding-left: 2px;
+            padding-right: 2px;
+        }
+        div {
+            text-transform: capitalize;
+            color: grey;
+            font-family: 'ProbaPro-Regular';
+        }
+    }
+    .review-form-fit-radio{
+        display: flex;
+        flex-direction: row;
+        margin-top: 4px;
+        margin-bottom: 20px;
+        label {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-size: 0.85em;
+            margin-left: 6px;
+            margin-right: 6px;
+            input[type="radio"] {
+                accent-color: black;
+                transform: scale(1.3);
+                margin-bottom: 6px;
+            }
+        }
+    }
+    div.review-form-recommend {
+        margin-top: 20px;
+        margin-bottom: 40px;
+    }
+    .review-form-recommend {
+        label {
+            border: 1px solid black;
+            padding: 28px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+        input:first-child + label {
+            border-right: none;
+        }
+        label:hover {
+            cursor: pointer;
+        }
+        input {
+            position: absolute;
+            display: none;
+        }
+        input:checked + label{
+            color: white;
+            background-color: black;
+        }
+    }
+    .review-form-text {
+        display: flex;
+        flex-direction: column;
+    }
+
+    button {
+        height: 40px;
+        padding-left: 30px;
+        padding-right: 30px;
+        border: none;
+        font-family: "ProbaPro-SemiBold";
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        font-size: 0.8em;
+        margin-top: 24px;
+        margin-bottom: 50px;
+    }
+    button:hover {
+        cursor: pointer;
+    }
+    .review-form-submit-button {
+        background-color: black;
+        color: white;
+        margin-right: 14px;
+    }
+    .review-form-cancel-button {
+        background-color: white;
+        color: black;
+        border: 1px solid black;
+    }
+    input[type='text'], textarea {
+        padding: 16px;
+        border: 1px solid black;
+        text-transform: none;
+        font-family: "ProbaPro-Regular";
+        &:focus {
+            outline: none;
+        }
+    }
+}
