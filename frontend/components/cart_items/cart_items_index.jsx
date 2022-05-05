@@ -115,7 +115,7 @@ class CartItemsIndex extends React.Component {
                         <div>${this.totalCost()}</div>
                     </div>
                     <Link to={`/checkout`}>
-                        <button>Continue to Checkout</button>
+                        <button onClick={this.props.closeModal}>Continue to Checkout</button>
                     </Link>
                 </div>
             </div>
