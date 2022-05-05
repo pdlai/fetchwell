@@ -22,6 +22,7 @@
 
 .splash-section1 {
     position: relative;
+    margin-bottom: 3vh;
     .section1-box {
         background-color: rgba(255,255,255,0.75);
         width: 280px;
@@ -59,7 +60,6 @@
         font-size: .75em;
         color: white;
         padding: 7%;
-        // padding-bottom: 5%;
     }
     img {
         max-width: inherit;
@@ -69,19 +69,27 @@
 .splash-section2 {
     display: flex;
     flex-direction: row;
-    margin: 4vh;
+    margin-bottom: 3vh;
+    a, a:hover, a:focus, a:active {
+        text-decoration: none;
+        color: black;
+    }
     .splash-section2-sub1 {
+        margin-right: 1.2%;
         img {
             float: left;
             margin-bottom: 2%;
         }
     }
     .splash-section2-sub2 {
+        margin-left: 0.6%;
+        margin-right: 0.6%;
         img {
             margin-top: 2%;
         }
     }
     .splash-section2-sub3 {
+        margin-left: 1.2%;
         img {
             float: right;
             margin-bottom: 2%;
@@ -93,13 +101,14 @@
     list-style: none;
     flex: 1;
     img {
-        width: 96%;
+        width: 100%;
     }
     div {
         font-family: "ProbaPro-Bold";
         text-transform: uppercase;
         letter-spacing: 0.05em;
-        font-size: 1.1em;
+        font-size: 1em;
+        overflow: hidden;
     }
     div:first-of-type {
         text-transform: none;
@@ -107,15 +116,101 @@
     }
 }
 
-.splash-section4 {
-    .splash-section4-sub1 {
-        img {
-            width: 500px;
-            display: flex;
+.splash-section3 {
+    display: flex;
+    margin-bottom: 3vh;
+    .splash-section3-sub1 {
+        flex: 1;
+        display: flex;
+    }
+    .splash-section3-sub2 {
+        flex: 1;
+        background-color: whitesmoke;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding-left: 2%;
+        padding-right: 2%;
+        .section3-sub2-title {
+            font-family: "ProbaPro-Bold";
+            font-size: 1.2em;
+            text-transform: uppercase;
+            letter-spacing: 0.09em;
+            text-decoration: underline;
+            text-decoration-thickness: .15em;
+            text-underline-offset: .2em;
+            margin-bottom: 20px;
+        }
+        .section3-sub2-subtitle{
+            line-height: 95%;
+            font-family: "ProbaPro-Bold";
+            font-size: 2.2em;
+            text-transform: uppercase;
+            letter-spacing: 0.09em;
+            margin-bottom: 10px;
+        }
+        .section3-sub2-description{
+            letter-spacing: 0.04em;
+            margin-bottom: 15px;
+            line-height: 130%;
+        }
+        a {
+            display: block;
+            width: fit-content;
+            padding: 2vw;
+            padding-top: 2vh;
+            padding-bottom: 2vh;
+            background-color: black;
+            color: white;
+            font-family: "ProbaPro-SemiBold";
+            text-transform: uppercase;
+            letter-spacing: 0.14em;
+            font-size: 0.8em;
+            margin-bottom: 50px;
             align-items: center;
-            justify-content: center;
-            flex-direction: column;
             text-align: center;
+            justify-content: center;
+            &:hover {
+                cursor: pointer;
+            }
         }
     }
+}
+
+.splash-between-label {
+    img {
+        max-width: 260px;
+        margin-bottom: 1vh;
+    }
+    div {
+        margin-bottom: 2vh;
+        font-size: 1.1em;
+        letter-spacing: 0.04em;
+    }
+}
+
+.splash-section4 {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    margin-bottom: 4vh;
+}
+
+.splash-section4 > div {
+    // flex: 1;
+    flex-basis: 24%;
+    img {
+        width: 100%;
+        margin-bottom: 4px;
+    }
+    div {
+        font-family: "ProbaPro-SemiBold";
+        letter-spacing: 0.06em;
+        font-size: 0.95em;
+    }
+}
+
+.perks-banner {
+    margin-bottom: 4vh;
 }

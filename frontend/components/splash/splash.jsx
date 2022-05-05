@@ -27,33 +27,31 @@ class Splash extends React.Component {
                   <br />
                   fresh&nbsp;takes&nbsp;on&nbsp;classic&nbsp;shapes.
                 </div>
-                <Link
-                  className="nav-link"
-                  to="/womens/new"
-                  onClick={() =>
-                    this.handleClick({ gender: "womens", category: "new" })
-                  }
-                >
-                  Shop New Arrivals
-                </Link>
+                <Link className="nav-link" to="/womens/new" onClick={() => this.handleClick({ gender: "womens", category: "new" })}>Shop New Arrivals</Link>
               </div>
             </div>
 
             <div className="splash-section2">
               <div className="splash-section2-sub1">
-                <img src='./section2-1.jpg' alt="section2_1" />
-                <div>Getting dressed made extra easy</div>
-                <div>So Many Matching Sets</div>
+                <Link className="nav-link" to="/womens/clothing" onClick={ () => this.handleClick({ gender: "womens", category: "clothing" })}>
+                  <img src='./section2-1.jpg' alt="section2_1" />
+                  <div>Getting dressed made extra easy</div>
+                  <div>So Many Matching Sets</div>
+                </Link>
               </div>
               <div className="splash-section2-sub2">
-                <div>Easy pairs to wear all season</div>
-                <div>Only The Best Shorts</div>
-                <img src='./section2-2.jpg' alt="section2_2" />
+                <Link className="nav-link" to="/womens/brands" onClick={ () => this.handleClick({ gender: "womens", category: "brands" })}>
+                  <div>Easy pairs to wear all season</div>
+                  <div>Only The Best Shorts</div>
+                  <img src='./section2-2.jpg' alt="section2_2" />
+                </Link>
               </div>
               <div className="splash-section2-sub3">
-                <img src='./section2-3.jpg' alt="section2_3" />
-                <div>Your new, go-to slide</div>
-                <div>Meet The Charley Sandal</div>
+                <Link className="nav-link" to="/womens/shoes" onClick={ () => this.handleClick({ gender: "womens", category: "shoes" })}>
+                  <img src='./section2-3.jpg' alt="section2_3" />
+                  <div>Your new, go-to slide</div>
+                  <div>Meet The Charley Sandal</div>
+                </Link>
               </div>
             </div>
 
@@ -62,30 +60,21 @@ class Splash extends React.Component {
                 <img src='./section3-1.png' alt="section3_1" />
               </div>
               <div className="splash-section3-sub2">
-                <div>Our Latest (Denim) Obsession</div>
-                <div>Dare to Flare</div>
-                <div>
+                <div className='section3-sub2-title'>Our Latest (Denim) Obsession</div>
+                <div className='section3-sub2-subtitle'>Dare to Flare</div>
+                <div className='section3-sub2-description'>
                   From subtle to superwide, a '70s-inspired vibe is where it's
                   at. Available in a variety of fits, sizes and in Petite, Tall
-                  an Plus.
+                  and Plus.
                 </div>
-                <Link
-                  className="nav-link"
-                  to="/womens/denim"
-                  onClick={() =>
-                    this.handleClick({
-                      gender: "womens",
-                      category: "denim",
-                    })
-                  }
-                >
+                <Link className="nav-link" to="/womens/denim" onClick={() => this.handleClick({ gender: "womens", category: "denim" })}>
                   Denim
                 </Link>
               </div>
             </div>
 
             <div className="splash-between-label">
-              <div>Labels We Love</div>
+              <img src='./labels_we_love.svg' />
               <div>
                 Exclusive collabs and curated picks from our favorite brands.
               </div>
@@ -94,11 +83,11 @@ class Splash extends React.Component {
             <div className="splash-section4">
               <div className="splash-section4-sub1">
                 <img src='./section4-1.jpg' alt="section4_1" />
-                <div>MADEWELL x HOTEL MAGIQUE</div>
+                <div>FETCHWELL x HOTEL MAGIQUE</div>
               </div>
               <div className="splash-section4-sub2">
                 <img src='./section4-2.jpg' alt="section4_2" />
-                <div>MADEWELL x TESS GUINERY</div>
+                <div>FETCHWELL x TESS GUINERY</div>
               </div>
               <div className="splash-section4-sub3">
                 <img src='./section4-3.jpg' alt="section4_3" />
