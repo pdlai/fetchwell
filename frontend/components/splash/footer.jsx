@@ -73,8 +73,9 @@ const Footer = () => {
                         </div>
                     </div>
                     <ul className='portfolio'>
-                        Site
+                        Sites
                         <li><a>Portfolio</a></li>
+                        <li><a href='https://www.madewell.com/' target='_blank'>Real Madewell Site</a></li>
                     </ul>
                     <ul className='technologies'>
                         Technologies

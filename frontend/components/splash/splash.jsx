@@ -5,10 +5,19 @@ class Splash extends React.Component {
     constructor(props){
         super(props);
         this.handleClick = this.handleClick.bind(this);
+        this.handleBannerClick = this.handleBannerClick.bind(this);
     }
 
     handleClick(filters){
         this.props.updateFilters(filters);
+    }
+
+    handleBannerClick(){
+      if (this.props.currentUser){
+        this.props.openModal('cart');
+      } else {
+        this.props.openModal('login');
+      }
     }
 
     render(){
@@ -101,7 +110,7 @@ class Splash extends React.Component {
             </div>
 
             <div className="perks-banner">
-              <img src='./perks-banner.png' alt="perks_banner" />
+              <img src='./perks-banner.png' alt="perks_banner" onClick={this.handleBannerClick}/>
             </div>
           </div>
         );
