@@ -18,6 +18,7 @@ class ProductShow extends React.Component {
     }
 
     componentDidMount(){
+        window.scrollTo(0,0);
         this.props.searchProduct(this.props.match.params.id);
         this.props.fetchReviews(this.props.match.params.id);
     }
@@ -202,7 +203,6 @@ class ProductShow extends React.Component {
     }
 
     render(){
-        window.scrollTo(0,0);
         if(!this.props.product || !this.props.reviews) return null;
         let date = new Date();
         let today = date.toDateString().split(" ");
