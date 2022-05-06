@@ -10,7 +10,9 @@ Fetchwell is a full-stack, React/Redux app intended to be a clone of the online 
 
 ## Features
 ### Products Filtering and Persisting State on Refresh
-![Filter Refresh]()
+<p align="center">
+  <img src="https://github.com/pdlai/fetchwell/blob/main/fetchwell_nav_demo.gif" width='70%'></img>
+</p>
 
 Users may browse products that are filtered by category. The navigation bar shows different categories that will filter and redirect the url path. Upon refresh, the url path is used to update the filters, so that the same category of products may be fetched again.
 ```javascript
@@ -26,7 +28,9 @@ componentDidMount(){
 }
  ```
 ### User Auth and Error Handling
-![Reviews Auth]()
+<p align="center">
+  <img src="https://github.com/pdlai/fetchwell/blob/main/fetchwell_auth_demo.gif" width='70%'></img>
+</p>
 
 There are validations in place before users can perform certain actions such as writing or submitting a review.
 
