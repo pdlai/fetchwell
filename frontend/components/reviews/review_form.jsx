@@ -21,6 +21,7 @@ class ReviewForm extends React.Component {
     }
 
     componentDidMount(){
+        window.scrollTo(0,0);
         this.props.searchProduct(this.props.match.params.id);
     }
 
