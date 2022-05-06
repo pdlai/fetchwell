@@ -36,6 +36,7 @@ class ReviewForm extends React.Component {
                 this.setState({ errors: this.props.errors })
             }
         )
+        window.scrollTo(0,0);
     }
     
     update(field){
@@ -95,7 +96,6 @@ class ReviewForm extends React.Component {
     }
 
     render(){
-        window.scrollTo(0,0);
         let productName;
         if( this.props.product ) productName = this.props.product.name;
 
